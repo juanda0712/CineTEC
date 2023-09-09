@@ -1,0 +1,7 @@
+FROM node:18.17-alpine
+WORKDIR /app
+COPY ./package*.json ./
+RUN npm install
+COPY . .
+# Ejecutamos el servidor de desarrollo al iniciar el CONTENEDOR
+CMD ["npm", "run", "start"]
