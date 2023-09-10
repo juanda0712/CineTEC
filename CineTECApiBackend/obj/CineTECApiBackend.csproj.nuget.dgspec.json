@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JuanDa\\Documents\\SEMESTRES\\2023 IIS\\Bases de Datos\\Prototipo\\CineTEC\\cinetec-API\\cinetec-API.csproj": {}
+    "C:\\Users\\JuanDa\\Documents\\SEMESTRES\\2023 IIS\\Bases de Datos\\Prototipo\\CineTEC\\CineTECApiBackend\\CineTECApiBackend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JuanDa\\Documents\\SEMESTRES\\2023 IIS\\Bases de Datos\\Prototipo\\CineTEC\\cinetec-API\\cinetec-API.csproj": {
+    "C:\\Users\\JuanDa\\Documents\\SEMESTRES\\2023 IIS\\Bases de Datos\\Prototipo\\CineTEC\\CineTECApiBackend\\CineTECApiBackend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JuanDa\\Documents\\SEMESTRES\\2023 IIS\\Bases de Datos\\Prototipo\\CineTEC\\cinetec-API\\cinetec-API.csproj",
-        "projectName": "cinetec-API",
-        "projectPath": "C:\\Users\\JuanDa\\Documents\\SEMESTRES\\2023 IIS\\Bases de Datos\\Prototipo\\CineTEC\\cinetec-API\\cinetec-API.csproj",
+        "projectUniqueName": "C:\\Users\\JuanDa\\Documents\\SEMESTRES\\2023 IIS\\Bases de Datos\\Prototipo\\CineTEC\\CineTECApiBackend\\CineTECApiBackend.csproj",
+        "projectName": "CineTECApiBackend",
+        "projectPath": "C:\\Users\\JuanDa\\Documents\\SEMESTRES\\2023 IIS\\Bases de Datos\\Prototipo\\CineTEC\\CineTECApiBackend\\CineTECApiBackend.csproj",
         "packagesPath": "C:\\Users\\JuanDa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JuanDa\\Documents\\SEMESTRES\\2023 IIS\\Bases de Datos\\Prototipo\\CineTEC\\cinetec-API\\obj\\",
+        "outputPath": "C:\\Users\\JuanDa\\Documents\\SEMESTRES\\2023 IIS\\Bases de Datos\\Prototipo\\CineTEC\\CineTECApiBackend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JuanDa\\AppData\\Roaming\\NuGet\\NuGet.Config",
