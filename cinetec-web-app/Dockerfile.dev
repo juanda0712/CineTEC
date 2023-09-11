@@ -1,5 +1,4 @@
 FROM node:18.17-alpine
-RUN npm install -g @angular/cli@16.1.8
 WORKDIR /app
 COPY ./package*.json ./
 RUN npm install
