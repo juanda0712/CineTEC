@@ -1,0 +1,26 @@
+[
+  {
+    "NombreOriginal": "The Shawshank Redemption",
+    "NombreComercial": "Sueño de Fuga",
+    "Imagen": "shawshank.jpg",
+    "Director": "Frank Darabont",
+    "Clasificacion": "R",
+    "Duracion": 142
+  },
+  {
+    "NombreOriginal": "The Godfather",
+    "NombreComercial": "El Padrino",
+    "Imagen": "godfather.jpg",
+    "Director": "Francis Ford Coppola",
+    "Clasificacion": "R",
+    "Duracion": 175
+  },
+  {
+    "NombreOriginal": "The Dark Knight",
+    "NombreComercial": "El Caballero de la Noche",
+    "Imagen": "darkknight.jpg",
+    "Director": "Christopher Nolan",
+    "Clasificacion": "PG-13",
+    "Duracion": 152
+  }
+]
