@@ -13,8 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
-List<Pelicula> peliculas = JsonSerializer.Deserialize<List<Pelicula>>(File.ReadAllText("Peliculas.json"));
-builder.Services.AddSingleton<List<Pelicula>>(peliculas);
+//List<Pelicula> peliculas = JsonSerializer.Deserialize<List<Pelicula>>(File.ReadAllText("Peliculas.json"));
+//builder.Services.AddSingleton<List<Pelicula>>(peliculas);
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
