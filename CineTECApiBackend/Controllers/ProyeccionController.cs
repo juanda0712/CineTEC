@@ -1,5 +1,5 @@
-﻿using CineTECApiBackend.DataManagement;
-using Microsoft.AspNetCore.Http;
+﻿using CineTECApiBackend.Models;
+using CineTECApiBackend.Utilities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CineTECApiBackend.Controllers
@@ -8,12 +8,18 @@ namespace CineTECApiBackend.Controllers
     [ApiController]
     public class ProyeccionController : ControllerBase
     {
+        private readonly IJsonFileLoader _jsonFileLoader;
+
+        public ProyeccionController(IJsonFileLoader jsonFileLoader)
+        {
+            _jsonFileLoader = jsonFileLoader;
+        }
 
         [HttpGet("proyeccionesPorPelicula")]
         public IActionResult ObtenerProyeccionesPorPelicula(string NombreOriginal)
         {
             // Obtén todas las proyecciones desde tu repositorio o archivo JSON
-            var todasLasProyecciones = Ejemplo.ObtenerProyecciones();
+            var todasLasProyecciones = _jsonFileLoader.LoadJsonFile<Proyeccion>("Proyecciones.json");
 
             // Filtra las proyecciones que coinciden con el NombreOriginal
             var proyeccionesPorPelicula = todasLasProyecciones.Where(p => p.Pelicula == NombreOriginal);
