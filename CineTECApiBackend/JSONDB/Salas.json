@@ -1,0 +1,26 @@
+[
+  {
+    "IDSala": 1,
+    "NumFilas": 10,
+    "NumColumnas": 15,
+    "NombreSucursal": "Paseo Metropoli"
+  },
+  {
+    "IDSala": 2,
+    "NumFilas": 15,
+    "NumColumnas": 20,
+    "NombreSucursal": "Paseo Metropoli"
+  },
+  {
+    "IDSala": 3,
+    "NumFilas": 14,
+    "NumColumnas": 18,
+    "NombreSucursal": "Terramall"
+  },
+  {
+    "IDSala": 4,
+    "NumFilas": 8,
+    "NumColumnas": 10,
+    "NombreSucursal": "Paseo Las Flores"
+  }
+]
