@@ -1,7 +1,7 @@
 [
   {
     "NombreOriginal": "The Shawshank Redemption",
-    "NombreComercial": "Sue�o de Fuga",
+    "NombreComercial": "Sue\uFFFDo de Fuga",
     "Imagen": "shawshank.jpg",
     "Director": "Frank Darabont",
     "Clasificacion": "R",
@@ -22,5 +22,29 @@
     "Director": "Christopher Nolan",
     "Clasificacion": "PG-13",
     "Duracion": 152
+  },
+  {
+    "NombreOriginal": "Inception",
+    "NombreComercial": "El Origen Test",
+    "Imagen": "inceptionTestImage.jpg",
+    "Director": "Christopher Nolan",
+    "Clasificacion": "PG-13",
+    "Duracion": 300
+  },
+  {
+    "NombreOriginal": "The Matrix",
+    "NombreComercial": "Matrix",
+    "Imagen": "matrix.jpg",
+    "Director": "Lana y Lilly Wachowski",
+    "Clasificacion": "R",
+    "Duracion": 136
+  },
+  {
+    "NombreOriginal": "interstellar",
+    "NombreComercial": "Interestelar",
+    "Imagen": "interstellar.jpg",
+    "Director": "Juan Rodriguez",
+    "Clasificacion": "PG-13",
+    "Duracion": 169
   }
 ]

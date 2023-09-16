@@ -8,18 +8,18 @@ namespace CineTECApiBackend.Controllers
     [ApiController]
     public class ProyeccionController : ControllerBase
     {
-        private readonly IJsonFileLoader _jsonFileLoader;
+        private readonly IJsonDataManager _jsonDataManager;
 
-        public ProyeccionController(IJsonFileLoader jsonFileLoader)
+        public ProyeccionController(IJsonDataManager jsonDataManager)
         {
-            _jsonFileLoader = jsonFileLoader;
+            _jsonDataManager = jsonDataManager;
         }
 
         [HttpGet("proyeccionesPorPelicula")]
         public IActionResult ObtenerProyeccionesPorPelicula(string NombreOriginal)
         {
             // Obtén todas las proyecciones desde tu repositorio o archivo JSON
-            var todasLasProyecciones = _jsonFileLoader.LoadJsonFile<Proyeccion>("Proyecciones.json");
+            var todasLasProyecciones = _jsonDataManager.LoadJsonFile<Proyeccion>("Proyecciones.json");
 
             // Filtra las proyecciones que coinciden con el NombreOriginal
             var proyeccionesPorPelicula = todasLasProyecciones.Where(p => p.Pelicula == NombreOriginal);
