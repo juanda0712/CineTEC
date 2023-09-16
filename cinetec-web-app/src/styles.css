@@ -1,1 +1,104 @@
 /* You can add global styles to this file, and also import other style files */
+/* styles.css */
+
+/* Definición de colores */
+:root {
+    --color-primary: #f6d55c; /* Color principal, por ejemplo, azul */
+    --color-secondary: #3caea3; /* Color secundario, por ejemplo, rojo */
+    --color-terciary: #20639b; /* Color de fondo, por ejemplo, gris claro */
+    --color-background: #FEF9E7; 
+    --color-text: #173f5f; /* Color de texto principal, por ejemplo, gris oscuro */
+  }
+
+/* Estilos generales */
+body {
+    background-color: var(--color-background);
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.container.presentation {
+    max-width: 800px;
+    margin-left: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* Estilos de la tarjeta */
+.container .card {
+    border: 1px solid var(--color-primary);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.container .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary);
+}
+
+/* Estilos del encabezado y pie de página */
+header {
+    background-color: var(--color-secondary);
+    padding: 20px 0;
+}
+
+header .navbar-brand {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+}
+
+/* Estilos de navegación */
+.navbar {
+    background-color: #fff;
+    border: none;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 20px;
+}
+
+.navbar-nav .nav-link {
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--color-secondary);
+}
+
+/* Estilos de la página principal */
+.main {
+    padding: 20px 0;
+}
