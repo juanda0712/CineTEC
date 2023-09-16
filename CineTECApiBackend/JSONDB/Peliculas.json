@@ -46,5 +46,13 @@
     "Director": "Juan Rodriguez",
     "Clasificacion": "PG-13",
     "Duracion": 169
+  },
+  {
+    "NombreOriginal": "Galaxia en Peligro",
+    "NombreComercial": "Aventura C\u00F3smica Juanda",
+    "Imagen": "galaxia.jpg",
+    "Director": "Astronauta Estelar",
+    "Clasificacion": "PG-12",
+    "Duracion": 130
   }
 ]

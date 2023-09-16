@@ -18,51 +18,51 @@ namespace CineTECApiBackend.Controllers
         }
 
         [HttpGet]
-        public IActionResult ObtenerPeliculas()
+        public IActionResult GetMovies()
         {
             // Tu lógica para obtener las películas aquí
-            var todasLasPeliculas = _jsonDataManager.LoadJsonFile<Pelicula>("Peliculas.json");
+            var allMovies = _jsonDataManager.LoadJsonFile<Pelicula>("Peliculas.json");
 
-            if (!todasLasPeliculas.Any())
+            if (!allMovies.Any())
             {
                 return NotFound(); // Si no se encuentran proyecciones para la película, devuelve un 404.
             }
-            return Ok(todasLasPeliculas); // Devuelve la lista de películas en formato JSON en lowerCamelCase
+            return Ok(allMovies); // Devuelve la lista de películas en formato JSON en lowerCamelCase
         }
 
         [HttpPost]
-        public IActionResult AgregarPelicula([FromBody] Pelicula nuevaPelicula)
+        public IActionResult AddMovie([FromBody] Pelicula newMovie)
         {
             // Utiliza el servicio IJsonFileLoader para agregar la nueva película al archivo JSON
-            _jsonDataManager.AddToJsonFile<Pelicula>(nuevaPelicula, "Peliculas.json");
+            _jsonDataManager.AddToJsonFile<Pelicula>(newMovie, "Peliculas.json");
 
             // Devuelve una respuesta HTTP 201 (Created) para indicar que la película se ha agregado con éxito
-            return CreatedAtAction("ObtenerPeliculas", nuevaPelicula);
+            return CreatedAtAction("AddMovie", newMovie);
         }
 
-        [HttpDelete("{nombreOriginal}")]
-        public IActionResult EliminarPelicula(string nombreOriginal)
+        [HttpDelete("{originalName}")]
+        public IActionResult DeleteMovie(string originalName)
         {
-            var todasLasPeliculas = _jsonDataManager.LoadJsonFile<Pelicula>("Peliculas.json");
+            var allMovies = _jsonDataManager.LoadJsonFile<Pelicula>("Peliculas.json");
 
             // Utiliza la función EliminarObjeto para eliminar la película por su nombreOriginal
-            _jsonDataManager.RemoveFromJsonFile<Pelicula>(todasLasPeliculas, p => p.NombreOriginal == nombreOriginal, "Peliculas.json");
+            _jsonDataManager.RemoveFromJsonFile<Pelicula>(allMovies, p => p.NombreOriginal == originalName, "Peliculas.json");
 
             return NoContent();
         }
 
-        [HttpPut("{nombreOriginal}")]
-        public IActionResult ActualizarPelicula(string nombreOriginal, [FromBody] Pelicula peliculaActualizada)
+        [HttpPut("{originalName}")]
+        public IActionResult UpdateMovie(string originalName, [FromBody] Pelicula updatedMovie)
         {
             try
             {
                 // Función de predicado para encontrar la película que coincida con el nombreOriginal
-                Func<Pelicula, bool> predicate = p => p.NombreOriginal == nombreOriginal;
+                Func<Pelicula, bool> predicate = p => p.NombreOriginal == originalName;
 
                 // Utiliza la función UpdateJsonFile para actualizar la película
-                _jsonDataManager.UpdateJsonFile(peliculaActualizada, predicate, "Peliculas.json");
+                _jsonDataManager.UpdateJsonFile(updatedMovie, predicate, "Peliculas.json");
 
-                return Ok(peliculaActualizada); // Devuelve la película actualizada en formato JSON
+                return Ok(updatedMovie); // Devuelve la película actualizada en formato JSON
             }
             catch (Exception ex)
             {
