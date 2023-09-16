@@ -1,6 +1,9 @@
 import { Routes } from '@angular/router';
 import { BootstrapTestComponent } from 'src/views/bootstrap-test/bootstrap-test.component';
-import { HomeComponent } from 'src/views/bootstrap-test/home.component';
+import { HomeComponent } from 'src/app/Components/home/home.component';
+import { ListingsComponent } from './Components/listings/listings.component';
+import { BookingComponent } from './Components/booking/booking.component';
+import { ContactComponent } from './Components/contact/contact.component';
 
 export const routes: Routes = [
   {
@@ -10,11 +13,21 @@ export const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    title: 'Home',
+    title: 'Home'
   },
   {
-    path: 'bootstrap',
-    component: BootstrapTestComponent,
-    title: 'Bootstrap',
+    path: 'listings',
+    component: ListingsComponent,
+    title: 'Cartelera'
   },
+  {
+    path: 'booking',
+    component: BookingComponent,
+    title: 'Reservas'
+  },
+  {
+    path: 'contact',
+    component: ContactComponent,
+    title: 'Contact'
+  }
 ];
