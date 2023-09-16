@@ -1,0 +1,17 @@
+[
+  {
+    "Nombre": "Paseo Metropoli",
+    "Ubicacion": "Cartago",
+    "NumeroSalas": 5
+  },
+  {
+    "Nombre": "Paseo Las Flores",
+    "Ubicacion": "Heredia",
+    "NumeroSalas": 10
+  },
+  {
+    "Nombre": "Terramall",
+    "Ubicacion": "Limon",
+    "NumeroSalas": 20
+  }
+]
