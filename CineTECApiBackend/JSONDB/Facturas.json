@@ -1,7 +1,7 @@
 [
   {
     "IDFactura": 1,
-    "CedulaCliente": 0,
+    "CedulaCliente": "0014",
     "NombreSucursal": "string",
     "IDProyeccion": 1,
     "IDSala": 1,
@@ -11,7 +11,7 @@
   },
   {
     "IDFactura": 2,
-    "CedulaCliente": 0,
+    "CedulaCliente": "0059",
     "NombreSucursal": "string",
     "IDProyeccion": 1,
     "IDSala": 1,

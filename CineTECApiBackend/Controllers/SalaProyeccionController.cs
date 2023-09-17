@@ -1,6 +1,5 @@
 ﻿using CineTECApiBackend.Models;
 using CineTECApiBackend.Utilities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CineTECApiBackend.Controllers

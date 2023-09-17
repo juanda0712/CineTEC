@@ -1,23 +1,23 @@
 [
   {
-    "Cedula": 123456789,
+    "Cedula": "123456789",
     "Nombre": "John Doe",
     "FechaNacimiento": "1980-05-15T00:00:00Z",
-    "Telefono": 1234567890,
+    "Telefono": "1234567890",
     "Correo": "john.doe@example.com"
   },
   {
-    "Cedula": 987654321,
+    "Cedula": "987654321",
     "Nombre": "Jane Smith",
-    "FechaNacimiento": "1990-08-20T00:00:00Z",
-    "Telefono": 5551234567,
+    "FechaNacimiento": "1980-05-15T00:00:00Z",
+    "Telefono": "1234567890",
     "Correo": "jane.smith@example.com"
   },
   {
-    "Cedula": 543216789,
+    "Cedula": "543216789",
     "Nombre": "Alice Johnson",
-    "FechaNacimiento": "1985-03-10T00:00:00Z",
-    "Telefono": 7779998888,
+    "FechaNacimiento": "1980-05-15T00:00:00Z",
+    "Telefono": "1234567890",
     "Correo": "alice.johnson@example.com"
   }
 ]

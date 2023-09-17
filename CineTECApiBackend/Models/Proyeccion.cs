@@ -8,9 +8,8 @@
         public int Año { get; set; }
         public DateTime HoraInicio { get; set; }
         public DateTime HoraFin { get; set; }
-
-        // Clave foránea (FK) para la relación con Película
-        public string Pelicula { get; set; }
+        public string Pelicula { get; set; } //Fk (PK de Pelicula)
+        public string NombreSucursal { get; set; } //FK (PK de Sucursal)
     }
 }
 

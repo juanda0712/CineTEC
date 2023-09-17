@@ -1,6 +1,5 @@
 ﻿using CineTECApiBackend.Models;
 using CineTECApiBackend.Utilities;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CineTECApiBackend.Controllers
@@ -20,12 +19,14 @@ namespace CineTECApiBackend.Controllers
         public IActionResult GetClients() 
         {
             var allClients = _jsonDataManager.LoadJsonFile<Cliente>("Clientes.json");
+
             if(!allClients.Any())
             {
                 return NotFound();
             }
             return Ok(allClients);
         }
+
         [HttpPost]
         public IActionResult AddClient([FromBody] Cliente newClient)
         {
@@ -36,24 +37,24 @@ namespace CineTECApiBackend.Controllers
             return CreatedAtAction("AddClient", newClient);
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult DeleteClient(int id)
+        [HttpDelete("{cedula}")]
+        public IActionResult DeleteClient(string cedula)
         {
             var allClients = _jsonDataManager.LoadJsonFile<Cliente>("Clientes.json");
 
             // Utiliza la función EliminarObjeto para eliminar la película por su nombreOriginal
-            _jsonDataManager.RemoveFromJsonFile<Cliente>(allClients, p => p.Cedula == id, "Clientes.json");
+            _jsonDataManager.RemoveFromJsonFile<Cliente>(allClients, p => p.Cedula == cedula, "Clientes.json");
 
             return NoContent();
         }
 
-        [HttpPut("{id}")]
-        public IActionResult UpdateClient(int id, [FromBody] Cliente updatedClient)
+        [HttpPut("{cedula}")]
+        public IActionResult UpdateClient(string cedula, [FromBody] Cliente updatedClient)
         {
             try
             {
                 // Función de predicado para encontrar la película que coincida con el nombreOriginal
-                Func<Cliente, bool> predicate = p => p.Cedula == id;
+                Func<Cliente, bool> predicate = p => p.Cedula == cedula;
 
                 // Utiliza la función UpdateJsonFile para actualizar la película
                 _jsonDataManager.UpdateJsonFile(updatedClient, predicate, "Clientes.json");

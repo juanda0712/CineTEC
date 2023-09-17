@@ -6,7 +6,8 @@
     "A�o": 2023,
     "HoraInicio": "2023-09-10T14:00:00",
     "HoraFin": "2023-09-10T16:00:00",
-    "Pelicula": "The Shawshank Redemption"
+    "Pelicula": "The Shawshank Redemption",
+    "NombreSucursal": "Paseo Metropoli"
   },
   {
     "IDProyeccion": 2,
@@ -15,7 +16,8 @@
     "A�o": 2023,
     "HoraInicio": "2023-09-10T16:30:00",
     "HoraFin": "2023-09-10T18:30:00",
-    "Pelicula": "The Godfather"
+    "Pelicula": "The Godfather",
+    "NombreSucursal": "Paseo Metropoli"
   },
   {
     "IDProyeccion": 3,
@@ -24,7 +26,8 @@
     "A�o": 2023,
     "HoraInicio": "2023-09-10T16:30:00",
     "HoraFin": "2023-09-10T18:30:00",
-    "Pelicula": "The Godfather"
+    "Pelicula": "The Godfather",
+    "NombreSucursal": "Paseo Las Flores"
   },
   {
     "IDProyeccion": 4,
@@ -33,7 +36,8 @@
     "A�o": 2023,
     "HoraInicio": "2023-09-10T16:30:00",
     "HoraFin": "2023-09-10T18:30:00",
-    "Pelicula": "The Godfather"
+    "Pelicula": "The Godfather",
+    "NombreSucursal": "Terramall"
   },
   {
     "IDProyeccion": 5,
@@ -42,7 +46,8 @@
     "A�o": 2023,
     "HoraInicio": "2023-09-10T16:30:00",
     "HoraFin": "2023-09-10T18:30:00",
-    "Pelicula": "The Godfather"
+    "Pelicula": "The Godfather",
+    "NombreSucursal": "Paseo Metropoli"
   },
   {
     "IDProyeccion": 6,
@@ -51,6 +56,7 @@
     "A�o": 2023,
     "HoraInicio": "2023-09-11T15:00:00",
     "HoraFin": "2023-09-11T17:00:00",
-    "Pelicula": "The Dark Knight"
+    "Pelicula": "The Dark Knight",
+    "NombreSucursal": "Paseo Metropoli"
   }
 ]

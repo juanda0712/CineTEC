@@ -15,21 +15,22 @@ namespace CineTECApiBackend.Controllers
             _jsonDataManager = jsonDataManager;
         }
 
-        [HttpGet("{originalName}")]
-        public IActionResult GetProjectionsByMovie(string originalName)
+        [HttpGet("{originalName}/{branchName}")]
+        public IActionResult GetProjectionsByMovie(string originalName, string branchName)
         {
             // Obtén todas las proyecciones desde tu repositorio o archivo JSON
             var allProjections = _jsonDataManager.LoadJsonFile<Proyeccion>("Proyecciones.json");
 
             // Filtra las proyecciones que coinciden con el NombreOriginal
-            var projectionsByMovie = allProjections.Where(p => p.Pelicula == originalName);
+            var projectionsByMovieAndBranch = allProjections
+                .Where(projection => projection.Pelicula == originalName && projection.NombreSucursal == branchName);
 
-            if (!projectionsByMovie.Any())
+            if (!projectionsByMovieAndBranch.Any())
             {
                 return NotFound(); // Si no se encuentran proyecciones para la película, devuelve un 404.
             }
 
-            return Ok(projectionsByMovie);
+            return Ok(projectionsByMovieAndBranch);
         }
 
         [HttpPost]
