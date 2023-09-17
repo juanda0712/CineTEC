@@ -3,12 +3,16 @@
 
 /* Definición de colores */
 :root {
-    --color-primary: #f6d55c; /* Color principal, por ejemplo, azul */
-    --color-secondary: #3caea3; /* Color secundario, por ejemplo, rojo */
-    --color-terciary: #20639b; /* Color de fondo, por ejemplo, gris claro */
-    --color-background: #FEF9E7; 
-    --color-text: #173f5f; /* Color de texto principal, por ejemplo, gris oscuro */
-  }
+    --color-primary: #f6d55c;
+    /* Color principal, por ejemplo, azul */
+    --color-secondary: #3caea3;
+    /* Color secundario, por ejemplo, rojo */
+    --color-terciary: #20639b;
+    /* Color de fondo, por ejemplo, gris claro */
+    --color-background: #FEF9E7;
+    --color-text: #173f5f;
+    /* Color de texto principal, por ejemplo, gris oscuro */
+}
 
 /* Estilos generales */
 body {
@@ -63,6 +67,7 @@ body {
 header {
     background-color: var(--color-secondary);
     padding: 20px 0;
+    margin-bottom: 10px;
 }
 
 header .navbar-brand {

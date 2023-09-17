@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-bootstrap-test',
+  selector: 'app-nav-bar',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './bootstrap-test.component.html',
+  templateUrl: './nav-bar.component.html',
   styles: [
   ]
 })
-export class BootstrapTestComponent {
+export class NavBarComponent {
 
 }

@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { BootstrapTestComponent } from 'src/views/bootstrap-test/bootstrap-test.component';
 import { HomeComponent } from 'src/app/Components/home/home.component';
 import { ListingsComponent } from './Components/listings/listings.component';
 import { BookingComponent } from './Components/booking/booking.component';
