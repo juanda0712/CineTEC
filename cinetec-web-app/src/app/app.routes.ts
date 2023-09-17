@@ -5,6 +5,7 @@ import { BookingComponent } from './Components/booking/booking.component';
 import { ContactComponent } from './Components/contact/contact.component';
 import { MovieInfoComponent } from './Components/movie-info/movie-info.component';
 import { BookingSpaceComponent } from './Components/booking-space/booking-space.component';
+import { ProjectionsComponent } from './Components/projections/projections.component';
 
 export const routes: Routes = [
   {
@@ -36,5 +37,10 @@ export const routes: Routes = [
     path: 'movie-info',
     component: MovieInfoComponent,
     title: 'informacion'
+  },
+  {
+    path: 'projections',
+    component: ProjectionsComponent,
+    title: 'Proyecciones'
   }
 ];
