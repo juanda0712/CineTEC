@@ -20,15 +20,35 @@ namespace CineTECApiBackend.Controllers
         [HttpGet]
         public IActionResult GetMovies()
         {
-            // Tu lógica para obtener las películas aquí
+            // Carga los datos de los JSON en listas separadas
             var allMovies = _jsonDataManager.LoadJsonFile<Pelicula>("Peliculas.json");
+            var allActors = _jsonDataManager.LoadJsonFile<Protagonista>("Protagonistas.json");
 
-            if (!allMovies.Any())
+            // Verifica si alguna de las listas está vacía
+            if (!allMovies.Any() || !allActors.Any())
             {
-                return NotFound(); // Si no se encuentran proyecciones para la película, devuelve un 404.
+                return NotFound();
             }
-            return Ok(allMovies); // Devuelve la lista de películas en formato JSON en lowerCamelCase
+
+            // Combina las películas y protagonistas por el campo NombreOriginal
+            var moviesWithActors = allMovies.Select(movie => new
+            {
+                NombreOriginal = movie.NombreOriginal,
+                NombreComercial = movie.NombreComercial,
+                Imagen = movie.Imagen,
+                Director = movie.Director,
+                Clasificacion = movie.Clasificacion,
+                Duracion = movie.Duracion,
+                Protagonistas = allActors
+                    .Where(actor => actor.NombreOriginal == movie.NombreOriginal)
+                    .Select(actor => actor.NombreCompleto)
+                    .ToList()
+            });
+
+            return Ok(moviesWithActors);
         }
+
+
 
         [HttpPost]
         public IActionResult AddMovie([FromBody] Pelicula newMovie)

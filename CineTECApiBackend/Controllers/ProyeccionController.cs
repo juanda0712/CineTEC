@@ -32,5 +32,45 @@ namespace CineTECApiBackend.Controllers
             return Ok(projectionsByMovie);
         }
 
+        [HttpPost]
+        public IActionResult AddProjection([FromBody] Proyeccion newProjection)
+        {
+            // Utiliza el servicio IJsonFileLoader para agregar la nueva proyeccion al archivo JSON
+            _jsonDataManager.AddToJsonFile<Proyeccion>(newProjection, "Proyecciones.json");
+
+            // Devuelve una respuesta HTTP 201 (Created) para indicar que la proyeccion se ha agregado con éxito
+            return CreatedAtAction("AddProjection", newProjection);
+        }
+
+        [HttpDelete("{ProjectionID}")]
+        public IActionResult DeleteProjection(int ProjectionID)
+        {
+            var allProjections = _jsonDataManager.LoadJsonFile<Proyeccion>("Proyecciones.json");
+
+            // Utiliza la función EliminarObjeto para eliminar la proyeccion por su IDProyeccion
+            _jsonDataManager.RemoveFromJsonFile<Proyeccion>(allProjections, p => p.IDProyeccion == ProjectionID, "Proyecciones.json");
+
+            return NoContent();
+        }
+
+        [HttpPut("{ProjectionID}")]
+        public IActionResult UpdateProjection(int ProjectionID, [FromBody] Proyeccion updatedProjection)
+        {
+            try
+            {
+                // Función de predicado para encontrar la proyeccion que coincida con el IDProyeccion
+                Func<Proyeccion, bool> predicate = pr => pr.IDProyeccion == ProjectionID;
+
+                // Utiliza la función UpdateJsonFile para actualizar la proyeccion
+                _jsonDataManager.UpdateJsonFile(updatedProjection, predicate, "Proyecciones.json");
+
+                return Ok(updatedProjection); // Devuelve la proyeccion actualizada en formato JSON
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error al actualizar la proyeccion: {ex.Message}");
+            }
+        }
+
     }
 }

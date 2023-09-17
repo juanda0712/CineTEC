@@ -4,19 +4,7 @@
     "IDProyeccion": 1
   },
   {
-    "IDSala": 1,
-    "IDProyeccion": 3
-  },
-  {
-    "IDSala": 3,
-    "IDProyeccion": 3
-  },
-  {
-    "IDSala": 3,
-    "IDProyeccion": 4
-  },
-  {
-    "IDSala": 4,
-    "IDProyeccion": 4
+    "IDSala": 2,
+    "IDProyeccion": 1
   }
 ]

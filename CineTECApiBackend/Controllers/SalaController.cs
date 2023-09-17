@@ -25,5 +25,21 @@ namespace CineTECApiBackend.Controllers
             }
             return Ok(allTheaters);
         }
+        [HttpGet("{branchName}")]
+        public IActionResult GetProjectionsByMovie(string branchName)
+        {
+            // Obtén todas las proyecciones desde tu repositorio o archivo JSON
+            var allTheaters = _jsonDataManager.LoadJsonFile<Sala>("Salas.json");
+
+            // Filtra las proyecciones que coinciden con el NombreOriginal
+            var theatersByBranch = allTheaters.Where(p => p.NombreSucursal == branchName);
+
+            if (!theatersByBranch.Any())
+            {
+                return NotFound(); // Si no se encuentran salas para la sucursal, devuelve un 404.
+            }
+
+            return Ok(theatersByBranch);
+        }
     }
 }

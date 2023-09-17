@@ -21,7 +21,7 @@ namespace CineTECApiBackend.Controllers
         {
             _jsonDataManager.AddToJsonFile<SalaProyeccion>(newSPUnion, "SalaProyeccion.json");
 
-            return CreatedAtAction("AddSPUnion", newSPUnion);
+            return CreatedAtAction("AddTheaterProjectionUnion", newSPUnion);
         }
 
         [HttpGet("{iDProjection}")]
