@@ -1,16 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MovieCardComponent } from '../movie-card/movie-card.component';
-import { NavBarComponent } from '../nav-bar/nav-bar.component';
+import { MovieCardComponent } from '../../Reusables/movie-card/movie-card.component';
+import { NavBarComponent } from '../../Reusables/nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-listings',
   standalone: true,
   imports: [CommonModule, MovieCardComponent, NavBarComponent],
   templateUrl: './listings.component.html',
-  styles: [
-  ]
+  styles: [],
 })
-export class ListingsComponent {
-
-}
+export class ListingsComponent { }
