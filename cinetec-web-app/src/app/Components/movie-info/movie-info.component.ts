@@ -3,13 +3,13 @@ import { CommonModule } from '@angular/common';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 @Component({
-  selector: 'app-booking',
+  selector: 'app-movie-info',
   standalone: true,
   imports: [CommonModule, NavBarComponent],
-  templateUrl: './booking.component.html',
+  templateUrl: './movie-info.component.html',
   styles: [
   ]
 })
-export class BookingComponent {
+export class MovieInfoComponent {
 
 }

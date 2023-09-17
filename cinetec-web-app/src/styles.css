@@ -5,7 +5,7 @@
 :root {
     --color-primary: #f6d55c;
     /* Color principal, por ejemplo, azul */
-    --color-secondary: #3caea3;
+    --color-secondary: #858b89;
     /* Color secundario, por ejemplo, rojo */
     --color-terciary: #20639b;
     /* Color de fondo, por ejemplo, gris claro */
@@ -67,7 +67,7 @@ body {
 header {
     background-color: var(--color-secondary);
     padding: 20px 0;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 header .navbar-brand {

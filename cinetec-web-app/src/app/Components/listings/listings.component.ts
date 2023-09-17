@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MovieCardComponent } from './movie-card/movie-card.component';
-import { NavBarComponent } from '../home/nav-bar/nav-bar.component';
+import { MovieCardComponent } from '../movie-card/movie-card.component';
+import { NavBarComponent } from '../nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-listings',
