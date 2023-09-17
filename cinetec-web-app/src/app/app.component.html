@@ -1,17 +1,17 @@
-<main>
-  <header class="brand-name">
+<main class="container d-flex flex-column">
+  <header class="text-center py-4">
     <img
       class="brand-logo"
-      src="/assets/logo.png"
+      src="/assets/logoTitle.png"
       alt="logo"
       aria-hidden="true"
     />
     <app-nav-bar></app-nav-bar>
   </header>
-  <section class="content">
+  <section class="text-center my-4 flex-grow-1" style="min-height: 100vh">
     <router-outlet></router-outlet>
   </section>
-  <footer class="presentation">
+  <footer class="text-center py-4">
     <p>&copy; 2023 CineTEC</p>
   </footer>
 </main>

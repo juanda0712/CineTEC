@@ -1,3 +1,30 @@
-<section class="listing">
-  <h2 class="listing-heading">Nombre Sucursal: {{ branch.nombre }}</h2>
+<section class="listing my-4">
+  <div class="container">
+    <div class="card">
+      <div class="row g-0">
+        <div class="col-lg-5">
+          <img
+            src="/assets/branch.png"
+            alt="Imagen de la sucursal"
+            class="img-fluid rounded"
+            style="max-width: 75%; height: auto"
+          />
+        </div>
+        <div class="col-lg-7" style="background-color: #f0dea9ef">
+          <div class="card-body text-center">
+            <h2 class="card-title text-primary">
+              {{ branch.nombre }}
+            </h2>
+            <p class="card-text text-muted">
+              <strong>Ubicación:</strong> {{ branch.ubicacion }}
+            </p>
+            <p class="card-text text-muted">
+              <strong>Número de Salas:</strong> {{ branch.numeroSalas }}
+            </p>
+            <a href="#" class="btn btn-primary">Ver detalles</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
