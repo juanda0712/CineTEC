@@ -1,14 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterOutlet, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterOutlet, RouterLink],
   templateUrl: './nav-bar.component.html',
-  styles: [
-  ]
+  styles: [],
 })
-export class NavBarComponent {
-
-}
+export class NavBarComponent {}

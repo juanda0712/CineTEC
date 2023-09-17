@@ -1,37 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurante XYZ</title>
-    <!-- Agrega enlaces a los estilos de Bootstrap y tu propio archivo CSS personalizado aquí -->
-    <link rel="stylesheet" href="C:\Users\valer\OneDrive\Documentos\GitHub\CineTEC\cinetec-web-app\src\styles.css">
-</head>
-
-<body>
-    <header>
-        <app-nav-bar></app-nav-bar>
-    </header>
-
-    <main class="container presentation">
-
-        <div class="card" style="width: 18rem;">
-
-            <div class="card-body">
-                <h5 class="card-title">CineTEC</h5>
-                <p class="card-text">
-                    Bienvenido a CineTEC. Disfruta de las mejores peliculas.
-                </p>
-                <a href="#" class="btn btn-primary">Ver Menú</a>
-            </div>
-        </div>
-
-    </main>
-
-    <footer class="presentation">
-        <p>&copy; 2023 CineTEC</p>
-    </footer>
-</body>
-
-</html>
+<section></section>
+<section class="results">
+  <app-branch *ngFor="let branch of branchList" [branch]="branch"></app-branch>
+</section>

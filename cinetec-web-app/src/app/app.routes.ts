@@ -6,27 +6,23 @@ import { ContactComponent } from './Components/contact/contact.component';
 
 export const routes: Routes = [
   {
-    path: '', redirectTo: "/home", pathMatch: 'full'
-
-  },
-  {
-    path: 'home',
+    path: '',
     component: HomeComponent,
-    title: 'Home'
+    title: 'Home',
   },
   {
     path: 'listings',
     component: ListingsComponent,
-    title: 'Cartelera'
+    title: 'Cartelera',
   },
   {
     path: 'booking',
     component: BookingComponent,
-    title: 'Reservas'
+    title: 'Reservas',
   },
   {
     path: 'contact',
     component: ContactComponent,
-    title: 'Contact'
-  }
+    title: 'Contact',
+  },
 ];

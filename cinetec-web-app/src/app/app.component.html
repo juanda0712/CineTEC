@@ -1,10 +1,17 @@
 <main>
-  <a [routerLink]="['/']">
-    <header class="brand-name">
-      <img class="brand-logo" src="/assets/logo.png" alt="logo" aria-hidden="true" />
-    </header>
-  </a>
+  <header class="brand-name">
+    <img
+      class="brand-logo"
+      src="/assets/logo.png"
+      alt="logo"
+      aria-hidden="true"
+    />
+    <app-nav-bar></app-nav-bar>
+  </header>
   <section class="content">
     <router-outlet></router-outlet>
   </section>
+  <footer class="presentation">
+    <p>&copy; 2023 CineTEC</p>
+  </footer>
 </main>
