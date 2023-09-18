@@ -7,6 +7,7 @@ import { MovieInfoComponent } from './Components/movie-info/movie-info.component
 import { BookingSpaceComponent } from './Components/booking-space/booking-space.component';
 import { ProjectionsComponent } from './Components/projections/projections.component';
 import { ClientFormComponent } from './Components/client-form/client-form.component';
+import { TheatreComponent } from './Components/theatre/theatre.component';
 
 export const routes: Routes = [
   {
@@ -48,5 +49,10 @@ export const routes: Routes = [
     path: 'client-form',
     component: ClientFormComponent,
     title: 'Formulario'
+  },
+  {
+    path: 'theatre',
+    component: TheatreComponent,
+    title: 'Sala'
   }
 ];
