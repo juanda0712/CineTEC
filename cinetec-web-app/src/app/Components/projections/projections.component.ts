@@ -12,5 +12,5 @@ import { ProjectionsCardComponent } from '../../Reusables/projections-card/proje
   ]
 })
 export class ProjectionsComponent {
-
+  
 }

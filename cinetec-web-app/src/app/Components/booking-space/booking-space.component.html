@@ -19,12 +19,45 @@
 
 </select>
 
+<head>
+  <title>Rectángulo</title>
+  <style>
+    .rectangle {
+      margin-left: 130px;
+      width: 900px; /* Ancho del rectángulo en píxeles */
+      height: 60px; /* Alto del rectángulo en píxeles */
+      background-color: lightblue; /* Color de fondo del rectángulo */
+      border: 2px solid teal; /* Borde del rectángulo */
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px; /* Tamaño de fuente del contenido dentro del rectángulo */
+    }
+  </style>
+</head>
 <body>
-    <div class="grid-container" id="grid">
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <div class="grid-item"></div>
-        <!-- Agrega más elementos div para más celdas -->
-    </div>
-    <script src="script.js"></script>
+  <div class="rectangle">
+    Pantalla
+  </div>
 </body>
+
+<div class="container text-center grid-container" style="margin-top: 50px;">
+  <div class="row custom-row" *ngFor="let row of rows" style="margin: 0; padding: 0;">
+    <div class="col custom-col" *ngFor="let col of cols" style="margin: 1px; padding: 0; background-color: lightgray;">
+      <div
+        class="grid-cell"
+        (click)="cellClicked(row, col)"
+      >
+        <div class="cell-content" [style.backgroundColor]="cellColors[row + col]">
+          {{ row }} - {{ col }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  
+  
