@@ -18,6 +18,8 @@ export class BookingSpaceComponent implements OnInit{
   rows: string[] = [];
   cols: number[] = [];
 
+  selectedSeats: string[] = [];
+
   cellColors: { [key: string]: string } = {};
 
   constructor() { }
@@ -31,16 +33,29 @@ export class BookingSpaceComponent implements OnInit{
   }
 
   cellClicked(row: string, col: number) {
-    // Esta función se ejecutará cuando se haga clic en una celda
-    console.log(`Celda clickeada: Fila ${row}, Columna ${col}`);
-
-    // Esta función se ejecutará cuando se haga clic en una celda
     console.log(`Celda clickeada: Fila ${row}, Columna ${col}`);
     
-    // Cambia el color de fondo de la celda al hacer clic
     const cellKey = row + col;
-    this.cellColors[cellKey] = this.cellColors[cellKey] === 'lightblue' ? '' : 'lightblue';
+    this.cellColors[cellKey] = this.cellColors[cellKey] === '#f6d55c' ? '' : '#f6d55c';
 
-    // Puedes agregar aquí la lógica que desees realizar al hacer clic en una celda
+
+    //Guardar los asientos seleccionados
+    const asiento = `${row}-${col}`;
+    
+    // Verificar si el asiento ya ha sido seleccionado visualmente
+    const isSelected = this.cellColors[asiento] === '#f6d55c';
+
+    if (isSelected) {
+      // Si el asiento está seleccionado visualmente, guardarlo
+      if (!this.selectedSeats.includes(asiento)) {
+        this.selectedSeats.push(asiento);
+      }
+    } else {
+      // Si el asiento no está seleccionado visualmente, eliminarlo si existe
+      const index = this.selectedSeats.indexOf(asiento);
+      if (index !== -1) {
+        this.selectedSeats.splice(index, 1);
+      }
+    }
   }
 }

@@ -6,6 +6,7 @@ import { ContactComponent } from './Components/contact/contact.component';
 import { MovieInfoComponent } from './Components/movie-info/movie-info.component';
 import { BookingSpaceComponent } from './Components/booking-space/booking-space.component';
 import { ProjectionsComponent } from './Components/projections/projections.component';
+import { ClientFormComponent } from './Components/client-form/client-form.component';
 
 export const routes: Routes = [
   {
@@ -42,5 +43,10 @@ export const routes: Routes = [
     path: 'projections',
     component: ProjectionsComponent,
     title: 'Proyecciones'
+  },
+  {
+    path: 'client-form',
+    component: ClientFormComponent,
+    title: 'Formulario'
   }
 ];
