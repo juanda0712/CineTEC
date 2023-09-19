@@ -14,7 +14,7 @@ import { ApiService } from 'src/app/Services/api-service';
 export class HomeComponent {
   branchList: Branch[] = [];
 
-  constructor(private api: ApiService<Branch>) {}
+  constructor(private api: ApiService<Branch>) { }
 
   ngOnInit() {
     this.api.getAll('Sucursal').subscribe(
@@ -25,5 +25,10 @@ export class HomeComponent {
         console.error('Error fetching branch:', error);
       }
     );
+  }
+
+  onBranch(branchName: any) {
+    localStorage.setItem("selectedBranch", branchName.target.value);
+    console.log(branchName.target.value);
   }
 }

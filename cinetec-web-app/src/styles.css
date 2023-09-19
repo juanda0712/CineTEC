@@ -5,11 +5,11 @@
 :root {
     --color-primary: #f6d55c;
     /* Color principal, por ejemplo, azul */
-    --color-secondary: #858b89;
+    --color-secondary: #ffffff;
     /* Color secundario, por ejemplo, rojo */
     --color-terciary: #20639b;
     /* Color de fondo, por ejemplo, gris claro */
-    --color-background: #FEF9E7;
+    --color-background: #f9d658;
     --color-text: #173f5f;
     /* Color de texto principal, por ejemplo, gris oscuro */
 }
@@ -23,8 +23,7 @@ body {
 
 .container.presentation {
     max-width: 800px;
-    margin-left: 50px;
-    margin-top: 20px;
+
     margin-bottom: 20px;
 }
 
@@ -67,7 +66,7 @@ body {
 header {
     background-color: var(--color-secondary);
     padding: 20px 0;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 header .navbar-brand {
@@ -84,13 +83,11 @@ footer {
 
 /* Estilos de navegación */
 .navbar {
-    background-color: #fff;
+    background-color: #f1950a;
     border: none;
 }
 
-.navbar-nav .nav-item {
-    margin-right: 20px;
-}
+
 
 .navbar-nav .nav-link {
     color: #333;

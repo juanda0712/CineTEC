@@ -11,4 +11,10 @@ import { Movie } from 'src/app/Interfaces/movie';
 })
 export class MovieCardComponent {
   @Input() movie!: Movie;
+  OnClick() {
+    console.log("hola");
+
+    localStorage.setItem("selectedMovie", this.movie.nombreOriginal)
+    window.location.href = "movie-info"
+  }
 }

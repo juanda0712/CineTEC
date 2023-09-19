@@ -18,7 +18,10 @@ export class MovieInfoComponent {
   constructor(private api: ApiService<Movie>) { }
 
   ngOnInit() {
-    this.api.getById(this.movie.nombreOriginal, 'Pelicula').subscribe(
+    const selectedMovie = localStorage.getItem("selectedMovie");
+    console.log(selectedMovie);
+
+    this.api.getById(selectedMovie!, 'Pelicula').subscribe(
       (movie: Movie) => {
         this.movie = movie;
       },
@@ -27,4 +30,6 @@ export class MovieInfoComponent {
       }
     );
   }
+
+
 }

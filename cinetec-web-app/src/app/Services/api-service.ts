@@ -38,4 +38,8 @@ export class ApiService<T> {
     const url = `${this.baseUrl}/${endpoint}/${branchName}`;
     return this.http.put<T>(url, data);
   }
+
+  GetMovieByBranch(branchName: string): Observable<T[]> {
+    return this.http.get<T[]>(`${this.baseUrl}/SucursalPelicula/${branchName}`);
+  }
 }

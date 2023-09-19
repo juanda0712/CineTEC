@@ -10,15 +10,9 @@
       <li class="list-group-item">{{ movie.clasificacion }}</li>
     </ul>
     <div class="card-body">
-      <a
-        style="text-decoration: none; color: aliceblue"
-        href="movie-info"
-        class="card-link"
-      >
-        <button class="btn btn-secondary me-md-2" type="button">
-          Ver más!
-        </button>
-      </a>
+      <button class="btn btn-secondary me-md-2" type="button" (click)="OnClick()">
+        Ver más!
+      </button>
     </div>
   </div>
 </div>
