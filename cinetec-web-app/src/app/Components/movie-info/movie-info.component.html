@@ -6,14 +6,13 @@
     <div class="card" style="width: 100%;">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Titulo de la Peliculas</h5>
-            <p class="card-text">sinopsis</p>
+            <h5 class="card-title">{{ movie.nombreOriginal }}</h5>
+            <p class="card-text">{{ movie.nombreComercial }}</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Horarios</li>
-            <li class="list-group-item">Duración</li>
-            <li class="list-group-item">Info de doblaje</li>
-            <li class="list-group-item">Reparto</li>
+            <li class="list-group-item">Duración: {{ movie.duración }}</li>
+            <li class="list-group-item">Clasificacion: {{ movie.clasificacion }}</li>
+            <li class="list-group-item">Director: {{ movie.director }}</li>
         </ul>
         <div class="card-body">
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">

@@ -2,12 +2,12 @@
   <div class="card" style="width: 100%">
     <img src="..." class="card-img-top" alt="..." />
     <div class="card-body">
-      <h5 class="card-title">{{ movie.nombreComercial }}</h5>
-      <p class="card-text">{{ movie.director }}}</p>
+      <h5 class="card-title">{{ movie.nombreOriginal }}</h5>
+      <p class="card-text">{{ movie.nombreComercial }}</p>
     </div>
     <ul class="list-group list-group-flush">
-      <li class="list-group-item">hora de duración</li>
-      <li class="list-group-item">info de doblaje</li>
+      <li class="list-group-item">{{ movie.duracion }}</li>
+      <li class="list-group-item">{{ movie.clasificacion }}</li>
     </ul>
     <div class="card-body">
       <a
