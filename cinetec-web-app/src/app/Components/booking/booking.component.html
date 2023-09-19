@@ -1,0 +1,93 @@
+<header>
+
+    <app-nav-bar></app-nav-bar>
+</header>
+
+<div class="container-sm" style="width: 50%">
+    <form class="row g-3 needs-validation" novalidate>
+        <div class="col-md-3">
+            <label for="validationCustom04" class="form-label">Ubicación</label>
+            <select class="form-select" id="validationCustom04" required>
+                <option selected disabled value="">Elija el tipo de Entrada</option>
+                <option>...</option>
+            </select>
+            <div class="invalid-feedback">
+                Por favor seleccione una entrada válida.
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label for="validationCustom04" class="form-label">Ubicación</label>
+            <select class="form-select" id="validationCustom04" required>
+                <option selected disabled value="">Elija la ubicación</option>
+                <option>...</option>
+            </select>
+            <div class="invalid-feedback">
+                Por favor seleccione una ubicación válida.
+            </div>
+        </div>
+        <div class="col-md-3">
+            <label for="validationCustom04" class="form-label">Fecha</label>
+            <select class="form-select" id="validationCustom04" required>
+                <option selected disabled value="">Elija una fecha</option>
+                <option>...</option>
+            </select>
+            <div class="invalid-feedback">
+                Por favor seleccione una fecha válida.
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th scope="col">Tipo</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    <td>Adulto</td>
+                    <td>2.500</td>
+                    <td><input min="0" max="10" class="form-control" type="number" placeholder="Cantidad"></td>
+                    <td>subtotal</td>
+                </tr>
+                <tr>
+
+                    <td>Niños</td>
+                    <td>1000</td>
+                    <td><input min="0" max="10" class="form-control" type="number" placeholder="Cantidad"></td>
+                    <td>subtotal</td>
+                </tr>
+                <tr>
+
+                    <td>Aduto mayor</td>
+                    <td>500</td>
+                    <td><input min="0" max="10" class="form-control" type="number" placeholder="Cantidad"></td>
+                    <td>subtotal</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+
+
+        <div class="col-12">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <a style="text-decoration: none; color:aliceblue" href="booking-space" class="card-link">
+                    <button class="btn btn-secondary me-md-2" type="button">
+                        Siguiente
+                    </button>
+                </a>
+                <a style="text-decoration: none; color:aliceblue" href="movie-info" class="card-link">
+                    <button class="btn btn-secondary me-md-2" type="button">
+                        Volver
+                    </button>
+                </a>
+            </div>
+        </div>
+    </form>
+
+</div>
