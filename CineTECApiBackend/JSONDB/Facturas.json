@@ -1,0 +1,22 @@
+[
+  {
+    "IDFactura": 1,
+    "CedulaCliente": "0014",
+    "NombreSucursal": "string",
+    "IDProyeccion": 1,
+    "IDSala": 1,
+    "Impuesto": 0,
+    "Monto": 0,
+    "Fecha": "2023-09-17T00:36:39.624Z"
+  },
+  {
+    "IDFactura": 2,
+    "CedulaCliente": "0059",
+    "NombreSucursal": "string",
+    "IDProyeccion": 1,
+    "IDSala": 1,
+    "Impuesto": 0,
+    "Monto": 0,
+    "Fecha": "2023-09-17T00:36:39.624Z"
+  }
+]

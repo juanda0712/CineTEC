@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from '../../Reusables/nav-bar/nav-bar.component';
 import { Movie } from 'src/app/Interfaces/movie';
+import { ApiService } from 'src/app/Services/api-service';
 
 @Component({
   selector: 'app-movie-info',
@@ -13,4 +14,17 @@ import { Movie } from 'src/app/Interfaces/movie';
 })
 export class MovieInfoComponent {
   @Input() movie!: Movie;
+
+  constructor(private api: ApiService<Movie>) { }
+
+  ngOnInit() {
+    this.api.getById(this.movie.nombreOriginal, 'Pelicula').subscribe(
+      (movie: Movie) => {
+        this.movie = movie;
+      },
+      (error: any) => {
+        console.error('Error fetching branch:', error);
+      }
+    );
+  }
 }
