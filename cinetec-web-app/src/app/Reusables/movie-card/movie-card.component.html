@@ -1,20 +1,24 @@
 <div class="container-md">
-    <div class="card" style="width: 100%;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Título de la película</h5>
-            <p class="card-text">descripción.</p>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">hora de duración</li>
-            <li class="list-group-item">info de doblaje</li>
-        </ul>
-        <div class="card-body">
-            <a style="text-decoration: none; color:aliceblue" href="movie-info" class="card-link">
-                <button class="btn btn-secondary me-md-2" type="button">
-                    Ver más!
-                </button>
-            </a>
-        </div>
+  <div class="card" style="width: 100%">
+    <img src="..." class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ movie.nombreComercial }}</h5>
+      <p class="card-text">{{ movie.director }}}</p>
     </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">hora de duración</li>
+      <li class="list-group-item">info de doblaje</li>
+    </ul>
+    <div class="card-body">
+      <a
+        style="text-decoration: none; color: aliceblue"
+        href="movie-info"
+        class="card-link"
+      >
+        <button class="btn btn-secondary me-md-2" type="button">
+          Ver más!
+        </button>
+      </a>
+    </div>
+  </div>
 </div>
