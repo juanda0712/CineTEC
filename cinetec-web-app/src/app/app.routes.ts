@@ -8,6 +8,10 @@ import { BookingSpaceComponent } from './Components/booking-space/booking-space.
 import { ProjectionsComponent } from './Components/projections/projections.component';
 import { ClientFormComponent } from './Components/client-form/client-form.component';
 import { TheatreComponent } from './Components/theatre/theatre.component';
+import { LoginComponent } from './admin-views/login/login.component';
+import { AdminPanelComponent } from './admin-views/admin-panel/admin-panel.component';
+import { AdminGuard } from './Services/admin-guard';
+import { AdminBranchComponent } from './admin-views/admin-branch/admin-branch.component';
 
 export const routes: Routes = [
   {
@@ -28,31 +32,48 @@ export const routes: Routes = [
   {
     path: 'booking-space',
     component: BookingSpaceComponent,
-    title: 'ReservaEspacio'
+    title: 'ReservaEspacio',
   },
   {
     path: 'contact',
     component: ContactComponent,
-    title: 'Contacto'
+    title: 'Contacto',
   },
   {
     path: 'movie-info',
     component: MovieInfoComponent,
-    title: 'informacion'
+    title: 'informacion',
   },
   {
     path: 'projections',
     component: ProjectionsComponent,
-    title: 'Proyecciones'
+    title: 'Proyecciones',
   },
   {
     path: 'client-form',
     component: ClientFormComponent,
-    title: 'Formulario'
+    title: 'Formulario',
   },
   {
     path: 'theatre',
     component: TheatreComponent,
-    title: 'Sala'
-  }
+    title: 'Sala',
+  },
+  {
+    path: 'admin-login',
+    component: LoginComponent,
+    title: 'Login',
+  },
+  {
+    path: 'admin-panel',
+    component: AdminPanelComponent,
+    title: 'Admin Panel',
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin-branch',
+    component: AdminBranchComponent,
+    title: 'Branches',
+    canActivate: [AdminGuard],
+  },
 ];
