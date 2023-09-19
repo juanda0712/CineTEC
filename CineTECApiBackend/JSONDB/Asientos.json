@@ -1,29 +1,8 @@
 [
   {
-    "Numero": 1,
-    "Estado": "Ocupado",
-    "IDSala": 1,
-    "IDProyeccion": 1,
-    "IDFactura": 1
-  },
-  {
-    "Numero": 2,
-    "Estado": "Ocupado",
-    "IDSala": 1,
-    "IDProyeccion": 1,
-    "IDFactura": 2
-  },
-  {
     "Numero": 3,
     "Estado": "Ocupado",
-    "IDSala": 1,
-    "IDProyeccion": 1,
-    "IDFactura": 1
-  },
-  {
-    "Numero": 2,
-    "Estado": "Ocupado",
-    "IDSala": 1,
+    "IDSala": 2,
     "IDProyeccion": 1,
     "IDFactura": 1
   },
@@ -67,6 +46,13 @@
     "Estado": "Ocupado",
     "IDSala": 1,
     "IDProyeccion": 1,
+    "IDFactura": 2
+  },
+  {
+    "Numero": 4,
+    "Estado": "ocupado",
+    "IDSala": 1,
+    "IDProyeccion": 2,
     "IDFactura": 2
   }
 ]
