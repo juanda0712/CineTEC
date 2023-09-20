@@ -7,13 +7,13 @@
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
-          <label for="nombre">Nombre:</label>
+          <label for="nombre">{{ modoEdicion }}Nombre:</label>
           <input
             type="text"
             id="nombre"
             class="form-control"
             formControlName="nombre"
-            required
+            [readonly]="modoEdicion"
           />
         </div>
       </div>
@@ -50,7 +50,7 @@
         class="btn btn-primary"
         [disabled]="!sucursalForm.valid"
       >
-        Guardar
+        {{ modoEdicion ? "Editar" : "Guardar" }}
       </button>
       <button
         type="button"

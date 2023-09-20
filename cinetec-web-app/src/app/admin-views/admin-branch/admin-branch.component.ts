@@ -24,19 +24,23 @@ export class AdminBranchComponent {
 
   constructor(private api: ApiService<Branch>, private fb: FormBuilder) {
     this.sucursalForm = this.fb.group({
-      nombre: ['', Validators.required],
+      nombre: [''],
       ubicacion: ['', Validators.required],
       numeroSalas: [null, Validators.required],
     });
   }
 
   ngOnInit() {
+    this.actualizarListaSucursales();
+  }
+
+  private actualizarListaSucursales() {
     this.api.getAll('Sucursal').subscribe(
       (data) => {
         this.sucursales = data;
       },
       (error: any) => {
-        console.error('Error fetching branch:', error);
+        console.error('Error al obtener la lista de sucursales:', error);
       }
     );
   }
@@ -58,17 +62,45 @@ export class AdminBranchComponent {
   guardarSucursal() {
     if (this.sucursalForm.valid) {
       const nuevaSucursal: Branch = this.sucursalForm.value;
-      this.api.create('Sucursal', nuevaSucursal).subscribe(
-        (data) => {
-          console.log(data);
-        },
-        (error: any) => {
-          console.error('Error fetching login:', error);
-        }
-      );
+      const branchName = nuevaSucursal.nombre;
+
+      if (this.modoEdicion) {
+        // Si estamos en modo edición, utiliza el endpoint de actualización
+        this.api.update('Sucursal', branchName, nuevaSucursal).subscribe(
+          (data) => {
+            console.log('Sucursal actualizada:', data);
+            this.actualizarListaSucursales();
+          },
+          (error: any) => {
+            console.error('Error al actualizar sucursal:', error);
+          }
+        );
+      } else {
+        // Si no estamos en modo edición, crea una nueva sucursal
+        this.api.create('Sucursal', nuevaSucursal).subscribe(
+          (data) => {
+            console.log('Nueva sucursal creada:', data);
+            this.actualizarListaSucursales();
+          },
+          (error: any) => {
+            console.error('Error al crear nueva sucursal:', error);
+          }
+        );
+      }
+
       this.crearNuevaSucursal();
     }
   }
 
-  eliminarSucursal(sucursal: Branch) {}
+  eliminarSucursal(sucursal: Branch) {
+    this.api.delete('Sucursal', sucursal.nombre).subscribe(
+      () => {
+        console.log('branch deletion successful');
+        this.actualizarListaSucursales();
+      },
+      (error: any) => {
+        console.error('Error fetching branch:', error);
+      }
+    );
+  }
 }

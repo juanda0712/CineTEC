@@ -34,8 +34,8 @@ export class ApiService<T> {
     return this.http.delete<void>(url);
   }
 
-  update(endpoint: string, branchName: string, data: T): Observable<T> {
-    const url = `${this.baseUrl}/${endpoint}/${branchName}`;
+  update(endpoint: string, id: any, data: T): Observable<T> {
+    const url = `${this.baseUrl}/${endpoint}/${id}`;
     return this.http.put<T>(url, data);
   }
 
