@@ -1,37 +1,42 @@
 <header>
-
-    <app-nav-bar></app-nav-bar>
+  <app-nav-bar></app-nav-bar>
 </header>
 <div class="container-md">
-    <div class="card" style="width: 100%;">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{ movie.nombreOriginal }}</h5>
-            <p class="card-text">{{ movie.nombreComercial }}</p>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Duración: {{ movie.duracion }}</li>
-            <li class="list-group-item">Clasificacion: {{ movie.clasificacion }}</li>
-            <li class="list-group-item">Director: {{ movie.director }}</li>
-        </ul>
-        <div class="card-body">
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-
-                <a style="text-decoration: none; color:aliceblue" href="projections" class="card-link">
-                    <button class="btn btn-secondary me-md-2" type="button">
-                        Reservar!
-                    </button>
-                </a>
-
-                <a style="text-decoration: none; color:aliceblue" href="listings" class="card-link">
-                    <button class="btn btn-secondary me-md-2" type="button">
-                        Volver!
-                    </button>
-                </a>
-
-            </div>
-
-
-        </div>
+  <div class="card" style="width: 100%">
+    <img src="..." class="card-img-top" alt="..." />
+    <div class="card-body">
+      <h5 class="card-title">{{ movie[0].nombreOriginal }}</h5>
+      <p class="card-text">{{ movie[0].nombreComercial }}</p>
     </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Duración: {{ movie[0].duracion }}</li>
+      <li class="list-group-item">
+        Clasificacion: {{ movie[0].clasificacion }}
+      </li>
+      <li class="list-group-item">Director: {{ movie[0].director }}</li>
+    </ul>
+    <div class="card-body">
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a
+          style="text-decoration: none; color: aliceblue"
+          href="projections"
+          class="card-link"
+        >
+          <button class="btn btn-secondary me-md-2" type="button">
+            Reservar!
+          </button>
+        </a>
+
+        <a
+          style="text-decoration: none; color: aliceblue"
+          href="listings"
+          class="card-link"
+        >
+          <button class="btn btn-secondary me-md-2" type="button">
+            Volver!
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
 </div>

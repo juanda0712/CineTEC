@@ -40,7 +40,7 @@ export const routes: Routes = [
     title: 'Contacto',
   },
   {
-    path: 'movie-info',
+    path: 'movie-info/:originalName',
     component: MovieInfoComponent,
     title: 'informacion',
   },
