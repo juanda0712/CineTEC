@@ -2,7 +2,7 @@ const data = {
   relations: [
     { name: 'Clientes', slug: 'clients' },
     { name: 'Sucursales', slug: 'branches' },
-    { name: 'Salas', slug: 'theaters' },
+    { name: 'Salas', slug: 'theater' },
     { name: 'Peliculas', slug: 'movies' },
     { name: 'Protagonistas', slug: 'actors' },
     { name: 'Proyecciones', slug: 'projections' },

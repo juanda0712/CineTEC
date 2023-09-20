@@ -12,6 +12,7 @@ import { LoginComponent } from './admin-views/login/login.component';
 import { AdminPanelComponent } from './admin-views/admin-panel/admin-panel.component';
 import { AdminGuard } from './Services/admin-guard';
 import { AdminBranchComponent } from './admin-views/admin-branch/admin-branch.component';
+import { AdminTheaterComponent } from './admin-views/admin-theater/admin-theater.component';
 
 export const routes: Routes = [
   {
@@ -74,6 +75,12 @@ export const routes: Routes = [
     path: 'admin/branches',
     component: AdminBranchComponent,
     title: 'Branches',
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/theater',
+    component: AdminTheaterComponent,
+    title: 'Theaters',
     canActivate: [AdminGuard],
   },
 ];
