@@ -39,5 +39,36 @@ namespace CineTECApiBackend.Controllers
 
             return Ok(moviesByBranch);
         }
+
+        [HttpDelete("{BranchName}/{MovieName}")]
+        public IActionResult DeleteSeat(string BranchName, string MovieName)
+        {
+            var allMovieByBranch = _jsonDataManager.LoadJsonFile<SucursalPelicula>("SucursalPelicula.json");
+
+            // Utiliza la función EliminarObjeto para eliminar una pelicula de una sucursal
+            _jsonDataManager.RemoveFromJsonFile<SucursalPelicula>(allMovieByBranch, p => p.NombreSucursal == BranchName && p.NombrePelicula == MovieName, "SucursalPelicula.json");
+
+            return NoContent();
+        }
+
+
+        [HttpPut("{BranchName}/{MovieName}")]
+        public IActionResult updatedMovieByBranch(string BranchName, string MovieName, [FromBody] SucursalPelicula updatedMovieByBranch)
+        {
+            try
+            {
+                // Función de predicado para encontrar la pelicula que coincida con el nombre de la sucursal
+                Func<SucursalPelicula, bool> predicate = p => p.NombreSucursal == BranchName && p.NombrePelicula == MovieName;
+
+                // Utiliza la función UpdateJsonFile para actualizar el asiento
+                _jsonDataManager.UpdateJsonFile(updatedMovieByBranch, predicate, "SucursalPelicula.json");
+
+                return Ok(updatedMovieByBranch); // Devuelve el asiento actualizado en formato JSON
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error al actualizar el asiento: {ex.Message}");
+            }
+        }
     }
 }
