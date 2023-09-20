@@ -41,7 +41,7 @@ namespace CineTECApiBackend.Controllers
         }
 
         [HttpDelete("{BranchName}/{MovieName}")]
-        public IActionResult DeleteSeat(string BranchName, string MovieName)
+        public IActionResult DeleteBranchByMovie(string BranchName, string MovieName)
         {
             var allMovieByBranch = _jsonDataManager.LoadJsonFile<SucursalPelicula>("SucursalPelicula.json");
 
@@ -60,14 +60,14 @@ namespace CineTECApiBackend.Controllers
                 // Función de predicado para encontrar la pelicula que coincida con el nombre de la sucursal
                 Func<SucursalPelicula, bool> predicate = p => p.NombreSucursal == BranchName && p.NombrePelicula == MovieName;
 
-                // Utiliza la función UpdateJsonFile para actualizar el asiento
+                // Utiliza la función UpdateJsonFile para actualizar la pelicula de una sucursal
                 _jsonDataManager.UpdateJsonFile(updatedMovieByBranch, predicate, "SucursalPelicula.json");
 
-                return Ok(updatedMovieByBranch); // Devuelve el asiento actualizado en formato JSON
+                return Ok(updatedMovieByBranch); // Devuelve la pelicula actualizada en formato JSON
             }
             catch (Exception ex)
             {
-                return BadRequest($"Error al actualizar el asiento: {ex.Message}");
+                return BadRequest($"Error al actualizar la pelicula: {ex.Message}");
             }
         }
     }
