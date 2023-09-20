@@ -3,6 +3,7 @@ import { RouterOutlet, RouterLink } from '@angular/router';
 import { Component } from '@angular/core';
 import { Branch } from 'src/app/Interfaces/branch';
 import { ApiService } from 'src/app/Services/api-service';
+import { Router } from '@angular/router';
 import {
   FormBuilder,
   FormGroup,
@@ -18,12 +19,16 @@ import {
   styles: [],
 })
 export class AdminBranchComponent {
-  sucursales: Branch[] = [];
-  modoEdicion = false;
-  sucursalForm: FormGroup;
+  branchList: Branch[] = [];
+  editMode = false;
+  branchForm: FormGroup;
 
-  constructor(private api: ApiService<Branch>, private fb: FormBuilder) {
-    this.sucursalForm = this.fb.group({
+  constructor(
+    private api: ApiService<Branch>,
+    private fb: FormBuilder,
+    private router: Router
+  ) {
+    this.branchForm = this.fb.group({
       nombre: [''],
       ubicacion: ['', Validators.required],
       numeroSalas: [null, Validators.required],
@@ -31,13 +36,13 @@ export class AdminBranchComponent {
   }
 
   ngOnInit() {
-    this.actualizarListaSucursales();
+    this.updateBranchList();
   }
 
-  private actualizarListaSucursales() {
+  private updateBranchList() {
     this.api.getAll('Sucursal').subscribe(
       (data) => {
-        this.sucursales = data;
+        this.branchList = data;
       },
       (error: any) => {
         console.error('Error al obtener la lista de sucursales:', error);
@@ -45,31 +50,31 @@ export class AdminBranchComponent {
     );
   }
 
-  crearNuevaSucursal() {
-    this.modoEdicion = false;
-    this.sucursalForm.reset();
+  createNewBranch() {
+    this.editMode = false;
+    this.branchForm.reset();
   }
 
-  editarSucursal(sucursal: Branch) {
-    this.modoEdicion = true;
-    this.sucursalForm.setValue({
-      nombre: sucursal.nombre,
-      ubicacion: sucursal.ubicacion,
-      numeroSalas: sucursal.numeroSalas,
+  editBranch(branch: Branch) {
+    this.editMode = true;
+    this.branchForm.setValue({
+      nombre: branch.nombre,
+      ubicacion: branch.ubicacion,
+      numeroSalas: branch.numeroSalas,
     });
   }
 
-  guardarSucursal() {
-    if (this.sucursalForm.valid) {
-      const nuevaSucursal: Branch = this.sucursalForm.value;
-      const branchName = nuevaSucursal.nombre;
+  saveBranch() {
+    if (this.branchForm.valid) {
+      const newBranch: Branch = this.branchForm.value;
+      const branchName = newBranch.nombre;
 
-      if (this.modoEdicion) {
+      if (this.editMode) {
         // Si estamos en modo edición, utiliza el endpoint de actualización
-        this.api.update('Sucursal', branchName, nuevaSucursal).subscribe(
+        this.api.update('Sucursal', branchName, newBranch).subscribe(
           (data) => {
             console.log('Sucursal actualizada:', data);
-            this.actualizarListaSucursales();
+            this.updateBranchList();
           },
           (error: any) => {
             console.error('Error al actualizar sucursal:', error);
@@ -77,10 +82,10 @@ export class AdminBranchComponent {
         );
       } else {
         // Si no estamos en modo edición, crea una nueva sucursal
-        this.api.create('Sucursal', nuevaSucursal).subscribe(
+        this.api.create('Sucursal', newBranch).subscribe(
           (data) => {
             console.log('Nueva sucursal creada:', data);
-            this.actualizarListaSucursales();
+            this.updateBranchList();
           },
           (error: any) => {
             console.error('Error al crear nueva sucursal:', error);
@@ -88,19 +93,23 @@ export class AdminBranchComponent {
         );
       }
 
-      this.crearNuevaSucursal();
+      this.createNewBranch();
     }
   }
 
-  eliminarSucursal(sucursal: Branch) {
-    this.api.delete('Sucursal', sucursal.nombre).subscribe(
+  deleteBranch(branch: Branch) {
+    this.api.delete('Sucursal', branch.nombre).subscribe(
       () => {
         console.log('branch deletion successful');
-        this.actualizarListaSucursales();
+        this.updateBranchList();
       },
       (error: any) => {
         console.error('Error fetching branch:', error);
       }
     );
+  }
+
+  returnBack() {
+    this.router.navigate(['/admin-panel']);
   }
 }
