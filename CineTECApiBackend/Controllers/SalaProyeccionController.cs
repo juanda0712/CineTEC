@@ -35,5 +35,36 @@ namespace CineTECApiBackend.Controllers
 
             return Ok(theatersByProjection);
         }
+
+        [HttpDelete("{IDRoom}/{IDProjection}")]
+        public IActionResult DeleteProjectionByRoom(int IDRoom, int IDProjection)
+        {
+            var allProjectionByRoom = _jsonDataManager.LoadJsonFile<SalaProyeccion>("SalaProyeccion.json");
+
+            // Utiliza la función EliminarObjeto para eliminar una proyeccion de una sala
+            _jsonDataManager.RemoveFromJsonFile<SalaProyeccion>(allProjectionByRoom, p => p.IDSala == IDRoom && p.IDProyeccion == IDProjection, "SalaProyeccion.json");
+
+            return NoContent();
+        }
+
+
+        [HttpPut("{IDRoom}/{IDProjection}")]
+        public IActionResult updatedProjectionByRoom(int IDRoom, int IDProjection, [FromBody] SalaProyeccion updatedProjectionByRoom)
+        {
+            try
+            {
+                // Función de predicado para encontrar la proyeccion que coincida con el nombre de la sala
+                Func<SalaProyeccion, bool> predicate = p => p.IDSala == IDRoom && p.IDProyeccion == IDProjection;
+
+                // Utiliza la función UpdateJsonFile para actualizar la proyeccion
+                _jsonDataManager.UpdateJsonFile(updatedProjectionByRoom, predicate, "SalaProyeccion.json");
+
+                return Ok(updatedProjectionByRoom); // Devuelve la proyeccion actualizada en formato JSON
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error al actualizar la proyeccion: {ex.Message}");
+            }
+        }
     }
 }

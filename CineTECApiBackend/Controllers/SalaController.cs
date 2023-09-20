@@ -41,5 +41,45 @@ namespace CineTECApiBackend.Controllers
 
             return Ok(theatersByBranch);
         }
+
+        [HttpPost]
+        public IActionResult AddRoom([FromBody] Sala newRoom)
+        {
+            // Utiliza el servicio IJsonFileLoader para agregar la nueva sala al archivo JSON
+            _jsonDataManager.AddToJsonFile<Sala>(newRoom, "Salas.json");
+
+            // Devuelve una respuesta HTTP 201 (Created) para indicar que la sala se ha agregado con éxito
+            return CreatedAtAction("AddRoom", newRoom);
+        }
+
+        [HttpDelete("{IDRoom}")]
+        public IActionResult DeleteRoom(int IDRoom)
+        {
+            var allRooms = _jsonDataManager.LoadJsonFile<Sala>("Salas.json");
+
+            // Utiliza la función EliminarObjeto para eliminar la sala por su ID
+            _jsonDataManager.RemoveFromJsonFile<Sala>(allRooms, p => p.IDSala == IDRoom, "Salas.json");
+
+            return NoContent();
+        }
+
+        [HttpPut("{IDRoom}")]
+        public IActionResult UpdateRoom(int IDRoom, [FromBody] Sala UpdateRoom)
+        {
+            try
+            {
+                // Función de predicado para encontrar la sala que coincida con el ID
+                Func<Sala, bool> predicate = p => p.IDSala == IDRoom;
+
+                // Utiliza la función UpdateJsonFile para actualizar la sala
+                _jsonDataManager.UpdateJsonFile(UpdateRoom, predicate, "Salas.json");
+
+                return Ok(UpdateRoom); // Devuelve la sala actualizada en formato JSON
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Error al actualizar la sala: {ex.Message}");
+            }
+        }
     }
 }

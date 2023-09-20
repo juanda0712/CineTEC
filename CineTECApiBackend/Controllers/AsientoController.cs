@@ -52,7 +52,7 @@ namespace CineTECApiBackend.Controllers
         }
 
 
-        [HttpPut("{NumberSeat}/{NumberSala}\"")]
+        [HttpPut("{NumberSeat}/{NumberSala}")]
         public IActionResult UpdateSeat(int NumberSeat, int NumberSala, [FromBody] Asiento updatedSeat)
         {
             try
