@@ -1,25 +1,29 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavBarComponent } from '../../Reusables/nav-bar/nav-bar.component';
-import { Movie } from 'src/app/Interfaces/movie';
+import { Movie, Movie2 } from 'src/app/Interfaces/movie';
 import { ApiService } from 'src/app/Services/api-service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-movie-info',
   standalone: true,
   imports: [CommonModule, NavBarComponent],
   templateUrl: './movie-info.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class MovieInfoComponent {
-  @Input() movie!: Movie;
+  movie: Movie2[] = [];
 
-  constructor(private api: ApiService<Movie>) { }
+  constructor(private api: ApiService<Movie2>, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.api.getById(this.movie.nombreOriginal, 'Pelicula').subscribe(
-      (movie: Movie) => {
+    //const selectedMovie = localStorage.getItem('originalName');
+    const selectedMovie = this.route.snapshot.params['originalName'];
+    console.log(selectedMovie);
+
+    this.api.getById('Peliculas', selectedMovie).subscribe(
+      (movie: Movie2[]) => {
         this.movie = movie;
       },
       (error: any) => {

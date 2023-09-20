@@ -40,7 +40,7 @@ export const routes: Routes = [
     title: 'Contacto',
   },
   {
-    path: 'movie-info',
+    path: 'movie-info/:originalName',
     component: MovieInfoComponent,
     title: 'informacion',
   },
@@ -71,7 +71,7 @@ export const routes: Routes = [
     canActivate: [AdminGuard],
   },
   {
-    path: 'admin-branch',
+    path: 'admin/branches',
     component: AdminBranchComponent,
     title: 'Branches',
     canActivate: [AdminGuard],

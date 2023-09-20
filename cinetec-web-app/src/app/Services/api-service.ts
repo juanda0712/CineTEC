@@ -8,15 +8,15 @@ import { Observable } from 'rxjs';
 export class ApiService<T> {
   private baseUrl = 'http://localhost:5053/api';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getAll(endpoint: string): Observable<T[]> {
     return this.http.get<T[]>(`${this.baseUrl}/${endpoint}`);
   }
 
-  getById(endpoint: string, id: any): Observable<T> {
+  getById(endpoint: string, id: any): Observable<T[]> {
     const url = `${this.baseUrl}/${endpoint}/${id}`;
-    return this.http.get<T>(url);
+    return this.http.get<T[]>(url);
   }
 
   getByTwoIds(endpoint: string, id1: any, id2: any): Observable<T> {
@@ -37,5 +37,9 @@ export class ApiService<T> {
   update(endpoint: string, branchName: string, data: T): Observable<T> {
     const url = `${this.baseUrl}/${endpoint}/${branchName}`;
     return this.http.put<T>(url, data);
+  }
+
+  GetMovieByBranch(branchName: string): Observable<T[]> {
+    return this.http.get<T[]>(`${this.baseUrl}/SucursalPelicula/${branchName}`);
   }
 }

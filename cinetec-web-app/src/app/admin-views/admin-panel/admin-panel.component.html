@@ -1,2 +1,24 @@
-<p>admin-panel works!</p>
-<a [routerLink]="['/admin-branch']">TEST</a>
+<!-- <p>admin-panel works!</p>
+<a [routerLink]="['/admin-branch']">TEST</a> -->
+<h1 class="mt-5">Panel de Administrador</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let relacion of relaciones">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">{{ relacion.name }}</h5>
+          <p
+            class="card-text text-truncate"
+            style="max-height: 100px; overflow: hidden"
+          >
+            Realizar operaciones de gestión en
+            {{ relacion.name.toLowerCase() }}.
+          </p>
+          <a [routerLink]="['/admin', relacion.slug]" class="btn btn-primary"
+            >Ir a {{ relacion.name }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

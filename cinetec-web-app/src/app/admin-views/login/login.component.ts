@@ -30,7 +30,6 @@ export class LoginComponent {
       usuario: this.loginForm.get('usuario')?.value,
       password: this.loginForm.get('password')?.value,
     };
-    console.log(loginData);
     this.api.create('Administrador/login', loginData).subscribe(
       () => {
         this.authService.login();

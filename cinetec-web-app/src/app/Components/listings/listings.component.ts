@@ -15,10 +15,11 @@ import { ApiService } from 'src/app/Services/api-service';
 export class ListingsComponent {
   movieList: Movie[] = [];
 
-  constructor(private api: ApiService<Movie>) {}
+  constructor(private api: ApiService<Movie>) { }
 
   ngOnInit() {
-    this.api.getAll('Peliculas').subscribe(
+    const branchName = localStorage.getItem("selectedBranch")
+    this.api.GetMovieByBranch(branchName!).subscribe(
       (data) => {
         this.movieList = data;
       },
