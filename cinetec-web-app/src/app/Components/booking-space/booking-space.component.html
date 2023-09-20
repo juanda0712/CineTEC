@@ -1,7 +1,7 @@
 <!-- Seleccion de asientos -->
 
 <header>
-    <app-nav-bar></app-nav-bar>
+  <app-nav-bar></app-nav-bar>
 </header>
 
 <h3>Seleccione los asientos que desea reservar</h3>
@@ -11,18 +11,24 @@
   <style>
     .rectangle {
       margin-left: 130px;
-      width: 900px; /* Ancho del rectángulo en píxeles */
-      height: 60px; /* Alto del rectángulo en píxeles */
-      background-color: lightblue; /* Color de fondo del rectángulo */
-      border: 2px solid teal; /* Borde del rectángulo */
+      width: 900px;
+      /* Ancho del rectángulo en píxeles */
+      height: 60px;
+      /* Alto del rectángulo en píxeles */
+      background-color: lightblue;
+      /* Color de fondo del rectángulo */
+      border: 2px solid teal;
+      /* Borde del rectángulo */
       text-align: center;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px; /* Tamaño de fuente del contenido dentro del rectángulo */
+      font-size: 16px;
+      /* Tamaño de fuente del contenido dentro del rectángulo */
     }
   </style>
 </head>
+
 <body>
   <div class="rectangle">
     Pantalla
@@ -32,10 +38,7 @@
 <div class="container text-center grid-container" style="margin-top: 50px; margin-bottom: 50px;">
   <div class="row custom-row" *ngFor="let row of rows" style="margin: 0; padding: 0;">
     <div class="col custom-col" *ngFor="let col of cols" style="margin: 1px; padding: 0; background-color: lightgray;">
-      <div
-        class="grid-cell"
-        (click)="cellClicked(row, col)"
-      >
+      <div class="grid-cell" (click)="cellClicked(row, col)">
         <div class="cell-content" [style.backgroundColor]="cellColors[row + col]">
           {{ row }} - {{ col }}
         </div>
@@ -45,29 +48,9 @@
 </div>
 
 
-<div class="selected-seats">
-  <h2>Asientos Seleccionados</h2>
-  <ul>
-    <li *ngFor="let asiento of selectedSeats">
-      {{ asiento }}
-    </li>
-  </ul>
-</div>
-
 <a style="text-decoration: none; color:aliceblue" href="client-form" class="card-link">
-  <button class="btn btn-secondary me-md-2" type="button" style="background-color: #f6d55c; border: none; color: black; margin-bottom: 20px;">
-      Comprar!
+  <button class="btn btn-secondary me-md-2" type="button"
+    style="background-color: #f6d55c; border: none; color: black; margin-bottom: 20px;">
+    Comprar!
   </button>
 </a>
-
-
-
-
-
-
-
-
-
-
-  
-  

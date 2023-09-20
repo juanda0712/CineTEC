@@ -6,16 +6,17 @@
 
 <h5>Para la proyección seleccionada ofrecemos las siguientes salas, seleccione donde desea reservar</h5>
 
-<select class="form-select" aria-label="Seleccion sala" style="margin-top: 20px; margin-bottom: 20px;">
+<select class="form-select" [(ngModel)]="opcionSeleccionada" (change)="onSelectChange()" aria-label="Seleccion sala"
+    style="margin-top: 20px; margin-bottom: 20px;">
     <option selected>Sala </option>
-    <option value="1">One</option>
-    <option value="2">Two</option>
-    <option value="3">Three</option>
-  </select>
+    <option *ngFor="let theatre of theatres">
+        {{ theatre.idSala }}
+</select>
 
-  <a style="text-decoration: none; color:aliceblue" href="booking-space" class="card-link">
-    <button class="btn btn-secondary me-md-2" type="button" style="background-color: #f6d55c; border: none; color: black; margin-bottom: 20px;">
+<a style="text-decoration: none; color:aliceblue" [routerLink]="['/booking-space', opcionSeleccionada]"
+    class="card-link">
+    <button class="btn btn-secondary me-md-2" type="button"
+        style="background-color: #f6d55c; border: none; color: black; margin-bottom: 20px;">
         Seleccionar asientos
     </button>
 </a>
-

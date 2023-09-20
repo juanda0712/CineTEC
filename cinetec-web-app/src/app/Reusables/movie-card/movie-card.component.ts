@@ -13,11 +13,11 @@ import { Router } from '@angular/router';
 export class MovieCardComponent {
   @Input() movie!: Movie;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
   OnClick() {
     console.log('hola');
 
-    localStorage.setItem('selectedMovie', this.movie.nombreOriginal);
+    //localStorage.setItem('selectedMovie', this.movie.nombreOriginal);
     this.router.navigate(['/movie-info', this.movie.nombreOriginal]);
     //window.location.href = `movie-info/${this.movie.nombreOriginal}`;
   }

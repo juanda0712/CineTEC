@@ -30,7 +30,7 @@ export const routes: Routes = [
     title: 'Reservas',
   },
   {
-    path: 'booking-space',
+    path: 'booking-space/:idSala',
     component: BookingSpaceComponent,
     title: 'ReservaEspacio',
   },
@@ -45,7 +45,7 @@ export const routes: Routes = [
     title: 'informacion',
   },
   {
-    path: 'projections',
+    path: 'projections/:originalName',
     component: ProjectionsComponent,
     title: 'Proyecciones',
   },
@@ -55,7 +55,7 @@ export const routes: Routes = [
     title: 'Formulario',
   },
   {
-    path: 'theatre',
+    path: 'theatre/:idProyeccion',
     component: TheatreComponent,
     title: 'Sala',
   },

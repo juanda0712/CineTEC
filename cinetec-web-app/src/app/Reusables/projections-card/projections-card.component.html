@@ -2,16 +2,17 @@
     <div class="card" style="width: 100%;">
         <img src="..." class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Proyección</h5>
-            <p class="card-text">descripción.</p>
+            <h5 class="card-title">Proyeccion: {{ projection.idProyeccion }}</h5>
+            <p class="card-text">Pelicula: {{ projection.pelicula }}</p>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Fecha</li>
-            <li class="list-group-item">Hora de inicio</li>
-            <li class="list-group-item">Hora de finalización</li>
+            <li class="list-group-item">Dia: {{projection.dia}} {{projection.mes}} </li>
+            <li class="list-group-item">Hora de inicio: {{projection.horaInicio}}</li>
+            <li class="list-group-item">Hora de finalización: {{projection.horaFin}}</li>
         </ul>
         <div class="card-body">
-            <a style="text-decoration: none; color:aliceblue" href="theatre" class="card-link">
+            <a style="text-decoration: none; color:aliceblue" [routerLink]="['/theatre', projection.idProyeccion]"
+                class="card-link">
                 <button class="btn btn-secondary me-md-2" type="button">
                     Ver salas
                 </button>
