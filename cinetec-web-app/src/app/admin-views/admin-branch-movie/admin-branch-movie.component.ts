@@ -83,7 +83,7 @@ export class AdminBranchMovieComponent {
         this.movieList = data;
       },
       (error: any) => {
-        console.error('Error al obtener la lista de peliculas:', error);
+        console.error('Error al obtener la lista de las peliculas:', error);
       }
     );
   }
