@@ -3,7 +3,7 @@
   <hr />
 
   <!-- Formulario para crear/editar sucursales -->
-  <form [formGroup]="sucursalForm" (ngSubmit)="guardarSucursal()">
+  <form [formGroup]="branchForm" (ngSubmit)="saveBranch()">
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
@@ -13,7 +13,7 @@
             id="nombre"
             class="form-control"
             formControlName="nombre"
-            required
+            [readonly]="editMode"
           />
         </div>
       </div>
@@ -48,16 +48,19 @@
       <button
         type="submit"
         class="btn btn-primary"
-        [disabled]="!sucursalForm.valid"
+        [disabled]="!branchForm.valid"
       >
-        Guardar
+        {{ editMode ? "Editar" : "Guardar" }}
       </button>
       <button
         type="button"
         class="btn btn-secondary"
-        (click)="crearNuevaSucursal()"
+        (click)="createNewBranch()"
       >
         Cancelar
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="returnBack()">
+        Atrás
       </button>
     </div>
   </form>
@@ -73,21 +76,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let sucursal of sucursales">
-        <td>{{ sucursal.nombre }}</td>
-        <td>{{ sucursal.ubicacion }}</td>
-        <td>{{ sucursal.numeroSalas }}</td>
+      <tr *ngFor="let branch of branchList">
+        <td>{{ branch.nombre }}</td>
+        <td>{{ branch.ubicacion }}</td>
+        <td>{{ branch.numeroSalas }}</td>
         <td>
-          <button
-            class="btn btn-sm btn-info"
-            (click)="editarSucursal(sucursal)"
-          >
+          <button class="btn btn-sm btn-info" (click)="editBranch(branch)">
             Editar
           </button>
-          <button
-            class="btn btn-sm btn-danger"
-            (click)="eliminarSucursal(sucursal)"
-          >
+          <button class="btn btn-sm btn-danger" (click)="deleteBranch(branch)">
             Eliminar
           </button>
         </td>

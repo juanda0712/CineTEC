@@ -1,0 +1,188 @@
+<div class="container mt-4">
+  <h2>Gestionar Facturas</h2>
+  <hr />
+
+  <!-- Formulario para crear/editar facturas -->
+  <form [formGroup]="billForm" (ngSubmit)="save()">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="idFactura">ID Factura:</label>
+          <input
+            type="number"
+            id="idFactura"
+            class="form-control"
+            formControlName="idFactura"
+            [readonly]="editMode"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="cedulaCliente">Cédula Cliente:</label>
+          <input
+            type="text"
+            id="cedulaCliente"
+            class="form-control"
+            formControlName="cedulaCliente"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nombreSucursal">Nombre de Sucursal:</label>
+          <input
+            type="text"
+            id="nombreSucursal"
+            class="form-control"
+            formControlName="nombreSucursal"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="idProyeccion">ID Proyección:</label>
+          <input
+            type="number"
+            id="idProyeccion"
+            class="form-control"
+            formControlName="idProyeccion"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="idSala">ID Sala:</label>
+          <input
+            type="number"
+            id="idSala"
+            class="form-control"
+            formControlName="idSala"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="impuesto">Impuesto:</label>
+          <input
+            type="number"
+            id="impuesto"
+            class="form-control"
+            formControlName="impuesto"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="monto">Monto:</label>
+          <input
+            type="number"
+            id="monto"
+            class="form-control"
+            formControlName="monto"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="fecha">Fecha:</label>
+          <input
+            type="date"
+            id="fecha"
+            class="form-control"
+            formControlName="fecha"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- FormArray para los asientos -->
+    <div class="form-group">
+      <h3>Asientos</h3>
+      <button type="button" class="btn btn-success" (click)="addSeat()">
+        Agregar Asiento
+      </button>
+      <div formArrayName="seats">
+        <div class="row" *ngFor="let seat of seats.controls; let i = index">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="seats{{ i }}">Asiento {{ i + 1 }}:</label>
+              <input
+                type="number"
+                id="seats{{ i }}"
+                class="form-control"
+                [formControlName]="i"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!billForm.valid"
+      >
+        {{ editMode ? "Editar" : "Guardar" }}
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="createNew()">
+        Cancelar
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="returnBack()">
+        Atrás
+      </button>
+    </div>
+  </form>
+
+  <!-- Lista de facturas -->
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>ID Factura</th>
+        <th>Cédula Cliente</th>
+        <th>Nombre de Sucursal</th>
+        <th>ID Proyección</th>
+        <th>ID Sala</th>
+        <th>Impuesto</th>
+        <th>Monto</th>
+        <th>Fecha</th>
+        <th>Asientos</th>
+        <!-- Nueva columna para los asientos -->
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bill of billList">
+        <td>{{ bill.idFactura }}</td>
+        <td>{{ bill.cedulaCliente }}</td>
+        <td>{{ bill.nombreSucursal }}</td>
+        <td>{{ bill.idProyeccion }}</td>
+        <td>{{ bill.idSala }}</td>
+        <td>{{ bill.impuesto }}</td>
+        <td>{{ bill.monto }}</td>
+        <td>{{ bill.fecha }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let seat of bill.seats">{{ seat }}</li>
+          </ul>
+        </td>
+        <td>
+          <button class="btn btn-sm btn-info" (click)="edit(bill)">
+            Editar
+          </button>
+          <button class="btn btn-sm btn-danger" (click)="deleteEntity(bill)">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
