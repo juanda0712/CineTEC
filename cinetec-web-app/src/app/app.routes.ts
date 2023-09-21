@@ -13,7 +13,9 @@ import { AdminPanelComponent } from './admin-views/admin-panel/admin-panel.compo
 import { AdminGuard } from './Services/admin-guard';
 import { AdminBranchComponent } from './admin-views/admin-branch/admin-branch.component';
 import { AdminTheaterComponent } from './admin-views/admin-theater/admin-theater.component';
-
+import { AdminClientComponent } from './admin-views/admin-client/admin-client.component';
+import { AdminMovieComponent } from './admin-views/admin-movie/admin-movie.component';
+import { AdminProjectionComponent } from './admin-views/admin-projection/admin-projection.component';
 export const routes: Routes = [
   {
     path: '',
@@ -81,6 +83,24 @@ export const routes: Routes = [
     path: 'admin/theater',
     component: AdminTheaterComponent,
     title: 'Theaters',
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/clients',
+    component: AdminClientComponent,
+    title: 'Clients',
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/movies',
+    component: AdminMovieComponent,
+    title: 'Movies',
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/projections',
+    component: AdminProjectionComponent,
+    title: 'Projections',
     canActivate: [AdminGuard],
   },
 ];

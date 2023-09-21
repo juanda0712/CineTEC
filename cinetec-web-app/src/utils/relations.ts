@@ -4,7 +4,6 @@ const data = {
     { name: 'Sucursales', slug: 'branches' },
     { name: 'Salas', slug: 'theater' },
     { name: 'Peliculas', slug: 'movies' },
-    { name: 'Protagonistas', slug: 'actors' },
     { name: 'Proyecciones', slug: 'projections' },
     { name: 'Facturas', slug: 'bills' },
     { name: 'Sala-Proyeccion', slug: 'theater-projection' },

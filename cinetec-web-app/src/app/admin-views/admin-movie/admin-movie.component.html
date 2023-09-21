@@ -1,0 +1,212 @@
+<div class="container mt-4">
+  <h2>Gestionar Películas y Actores</h2>
+  <hr />
+
+  <!-- Formulario para crear/editar películas -->
+  <form [formGroup]="movieForm" (ngSubmit)="saveMovie()">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nombreOriginal">Nombre Original:</label>
+          <input
+            type="text"
+            id="nombreOriginal"
+            class="form-control"
+            formControlName="nombreOriginal"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nombreComercial">Nombre Comercial:</label>
+          <input
+            type="text"
+            id="nombreComercial"
+            class="form-control"
+            formControlName="nombreComercial"
+            required
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="imagen">Imagen:</label>
+          <input
+            type="text"
+            id="imagen"
+            class="form-control"
+            formControlName="imagen"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="director">Director:</label>
+          <input
+            type="text"
+            id="director"
+            class="form-control"
+            formControlName="director"
+            required
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="clasificacion">Clasificación:</label>
+          <input
+            type="text"
+            id="clasificacion"
+            class="form-control"
+            formControlName="clasificacion"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="duracion">Duración (minutos):</label>
+          <input
+            type="number"
+            id="duracion"
+            class="form-control"
+            formControlName="duracion"
+            required
+          />
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!movieForm.valid"
+      >
+        {{ editMode ? "Editar Película" : "Guardar Película" }}
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="createNewMovie()"
+      >
+        Cancelar
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="returnBack()">
+        Atras
+      </button>
+    </div>
+  </form>
+
+  <!-- Lista de películas -->
+  <h3>Películas</h3>
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>Nombre Original</th>
+        <th>Nombre Comercial</th>
+        <th>Director</th>
+        <th>Clasificación</th>
+        <th>Duración (minutos)</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let movie of movieList">
+        <td>{{ movie.nombreOriginal }}</td>
+        <td>{{ movie.nombreComercial }}</td>
+        <td>{{ movie.director }}</td>
+        <td>{{ movie.clasificacion }}</td>
+        <td>{{ movie.duracion }}</td>
+        <td>
+          <button class="btn btn-sm btn-info" (click)="editMovie(movie)">
+            Editar
+          </button>
+          <button class="btn btn-sm btn-danger" (click)="deleteMovie(movie)">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Formulario para crear/editar actores -->
+  <form [formGroup]="actorForm" (ngSubmit)="saveActor()">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nombreCompleto">Nombre Completo:</label>
+          <input
+            type="text"
+            id="nombreCompleto"
+            class="form-control"
+            formControlName="nombreCompleto"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nombreOriginal">Nombre Original (Película):</label>
+          <select
+            id="nombreOriginal"
+            class="form-control"
+            formControlName="nombreOriginal"
+            required
+          >
+            <option
+              *ngFor="let movie of movieList"
+              [value]="movie.nombreOriginal"
+            >
+              {{ movie.nombreOriginal }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!actorForm.valid"
+      >
+        Guardar Actor
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary"
+        (click)="createNewActor()"
+      >
+        Cancelar
+      </button>
+    </div>
+  </form>
+
+  <!-- Lista de actores -->
+  <h3>Actores</h3>
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>Nombre Completo</th>
+        <th>Nombre Original</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let actor of actorList">
+        <td>{{ actor.nombreCompleto }}</td>
+        <td>{{ actor.nombreOriginal }}</td>
+        <td>
+          <button class="btn btn-sm btn-danger" (click)="deleteActor(actor)">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
