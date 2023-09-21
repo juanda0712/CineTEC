@@ -35,6 +35,14 @@ namespace CineTECApiBackend.Controllers
 
             return Ok(theatersByProjection);
         }
+        [HttpGet]
+        public IActionResult getUnions(int iDProjection)
+        {
+            var allTheaterProjectionUnions = _jsonDataManager.LoadJsonFile<SalaProyeccion>("SalaProyeccion.json");
+
+
+            return Ok(allTheaterProjectionUnions);
+        }
 
         [HttpDelete("{IDRoom}/{IDProjection}")]
         public IActionResult DeleteProjectionByRoom(int IDRoom, int IDProjection)

@@ -50,6 +50,16 @@ namespace CineTECApiBackend.Controllers
 
             return NoContent();
         }
+        [HttpDelete("{idBill}")]
+        public IActionResult DeleteSeatByBill(int idBill)
+        {
+            var allSeats = _jsonDataManager.LoadJsonFile<Asiento>("Asientos.json");
+
+            // Utiliza la función EliminarObjeto para eliminar un asiento por su numero y número de sala
+            _jsonDataManager.RemoveFromJsonFile<Asiento>(allSeats, p => p.IDFactura == idBill, "Asientos.json");
+
+            return NoContent();
+        }
 
 
         [HttpPut("{NumberSeat}/{NumberSala}")]

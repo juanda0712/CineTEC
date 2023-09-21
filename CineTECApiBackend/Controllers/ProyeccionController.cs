@@ -32,6 +32,17 @@ namespace CineTECApiBackend.Controllers
 
             return Ok(projectionsByMovieAndBranch);
         }
+        [HttpGet]
+        public IActionResult GetProjections()
+        {
+            // Obtén todas las proyecciones desde tu repositorio o archivo JSON
+            var allProjections = _jsonDataManager.LoadJsonFile<Proyeccion>("Proyecciones.json");
+            if (!allProjections.Any())
+            {
+                return NotFound(); 
+            }
+            return Ok(allProjections);
+        }
 
         [HttpPost]
         public IActionResult AddProjection([FromBody] Proyeccion newProjection)

@@ -39,6 +39,18 @@ namespace CineTECApiBackend.Controllers
 
             return Ok(moviesByBranch);
         }
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var allUnions = _jsonDataManager.LoadJsonFile<SucursalPelicula>("SucursalPelicula.json");
+            
+            if (!allUnions.Any())
+            {
+                return NotFound();
+            }
+
+            return Ok(allUnions);
+        }
 
         [HttpDelete("{BranchName}/{MovieName}")]
         public IActionResult DeleteBranchByMovie(string BranchName, string MovieName)

@@ -22,5 +22,11 @@
     "NumFilas": 8,
     "NumColumnas": 10,
     "NombreSucursal": "Paseo Las Flores"
+  },
+  {
+    "IDSala": 5,
+    "NumFilas": 10,
+    "NumColumnas": 10,
+    "NombreSucursal": "Terramall"
   }
 ]

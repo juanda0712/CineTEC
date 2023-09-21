@@ -10,5 +10,13 @@
   {
     "NombrePelicula": "The Godfather",
     "NombreSucursal": "Paseo Las Flores"
+  },
+  {
+    "NombrePelicula": "Galaxia en Peligro",
+    "NombreSucursal": "Paseo Las Flores"
+  },
+  {
+    "NombrePelicula": "The Matrix",
+    "NombreSucursal": "Terramall"
   }
 ]

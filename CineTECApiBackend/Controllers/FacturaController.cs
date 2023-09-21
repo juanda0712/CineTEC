@@ -17,7 +17,7 @@ namespace CineTECApiBackend.Controllers
 
 
         [HttpGet]
-        public IActionResult GetMovies()
+        public IActionResult GetBills()
         {
             // Carga los datos de los JSON en listas separadas
             var allBills = _jsonDataManager.LoadJsonFile<Factura>("Facturas.json");

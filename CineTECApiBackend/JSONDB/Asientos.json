@@ -54,5 +54,12 @@
     "IDSala": 1,
     "IDProyeccion": 2,
     "IDFactura": 2
+  },
+  {
+    "Numero": 13,
+    "Estado": "ocupado",
+    "IDSala": 1,
+    "IDProyeccion": 1,
+    "IDFactura": 3
   }
 ]
