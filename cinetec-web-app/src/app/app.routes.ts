@@ -12,7 +12,13 @@ import { LoginComponent } from './admin-views/login/login.component';
 import { AdminPanelComponent } from './admin-views/admin-panel/admin-panel.component';
 import { AdminGuard } from './Services/admin-guard';
 import { AdminBranchComponent } from './admin-views/admin-branch/admin-branch.component';
-
+import { AdminTheaterComponent } from './admin-views/admin-theater/admin-theater.component';
+import { AdminClientComponent } from './admin-views/admin-client/admin-client.component';
+import { AdminMovieComponent } from './admin-views/admin-movie/admin-movie.component';
+import { AdminProjectionComponent } from './admin-views/admin-projection/admin-projection.component';
+import { AdminBillComponent } from './admin-views/admin-bill/admin-bill.component';
+import { AdminTheaterProjectionComponent } from './admin-views/admin-theater-projection/admin-theater-projection.component';
+import { AdminBranchMovieComponent } from './admin-views/admin-branch-movie/admin-branch-movie.component';
 export const routes: Routes = [
   {
     path: '',
@@ -74,6 +80,48 @@ export const routes: Routes = [
     path: 'admin/branches',
     component: AdminBranchComponent,
     title: 'Branches',
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/theater',
+    component: AdminTheaterComponent,
+    title: 'Theaters',
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/clients',
+    component: AdminClientComponent,
+    title: 'Clients',
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/movies',
+    component: AdminMovieComponent,
+    title: 'Movies',
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/projections',
+    component: AdminProjectionComponent,
+    title: 'Projections',
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/bills',
+    component: AdminBillComponent,
+    title: 'Bills',
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/theater-projection',
+    component: AdminTheaterProjectionComponent,
+    title: 'Unios',
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/branch-movie',
+    component: AdminBranchMovieComponent,
+    title: 'BranchMovie',
     canActivate: [AdminGuard],
   },
 ];

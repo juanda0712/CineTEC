@@ -1,10 +1,11 @@
 export interface Projection {
-    idProyeccion: number; // Clave primaria (PK)
-    dia: number;
-    mes: number;
-    año: number;
-    horaInicio: Date;
-    horaFin: Date;
-    pelicula: String; //Fk (PK de Pelicula)
-    nombreSucursal: String;
+  idProyeccion: number;
+  dia: number;
+  mes: number;
+  agno: number;
+  horaInicio: Date;
+  horaFin: Date;
+  pelicula: string;
+  nombreSucursal: string;
 }
+

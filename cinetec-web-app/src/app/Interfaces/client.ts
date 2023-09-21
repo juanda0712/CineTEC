@@ -1,7 +1,8 @@
 export interface Client {
-    Cedula?: string;  // Clave primaria (PK)
-    Nombre?: string;
-    FechaNacimiento?: Date;
-    Telefono?: string;
-    Correo?: string;
+  cedula?: string; // Clave primaria (PK)
+  nombre?: string;
+  fechaNacimiento?: Date;
+  telefono?: string;
+  correo?: string;
 }
+

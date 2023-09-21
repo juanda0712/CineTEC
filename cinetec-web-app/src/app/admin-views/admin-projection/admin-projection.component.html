@@ -1,0 +1,224 @@
+<div class="container mt-4">
+  <h2>Gestionar Proyecciones</h2>
+  <hr />
+
+  <!-- Formulario de creación y edición -->
+  <div class="mt-4">
+    <h3>Crear/Editar Proyección</h3>
+    <form [formGroup]="projectionForm">
+      <!-- Campos del formulario para crear/editar proyecciones -->
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="iDProyeccion">ID Proyección:</label>
+            <input
+              type="number"
+              id="idProyeccion"
+              class="form-control"
+              formControlName="idProyeccion"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="dia">Día:</label>
+            <input
+              type="number"
+              id="dia"
+              class="form-control"
+              formControlName="dia"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="mes">Mes:</label>
+            <input
+              type="number"
+              id="mes"
+              class="form-control"
+              formControlName="mes"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Agrega más campos aquí -->
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="horaInicio">Hora de Inicio:</label>
+            <input
+              type="date"
+              id="horaInicio"
+              class="form-control"
+              formControlName="horaInicio"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="horaFin">Hora Fin:</label>
+            <input
+              type="date"
+              id="horaFin"
+              class="form-control"
+              formControlName="horaFin"
+            />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="pelicula">Película:</label>
+            <select
+              id="pelicula"
+              class="form-control"
+              formControlName="pelicula"
+            >
+              <option value="" disabled selected>
+                Selecciona una película
+              </option>
+              <option
+                *ngFor="let movie of movieList"
+                [value]="movie.nombreOriginal"
+              >
+                {{ movie.nombreOriginal }}
+              </option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Agrega más campos aquí -->
+      </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="nombreSucursal">Nombre de la Sucursal:</label>
+            <select
+              id="nombreSucursal"
+              class="form-control"
+              formControlName="nombreSucursal"
+            >
+              <option value="" disabled selected>
+                Selecciona una sucursal
+              </option>
+              <option *ngFor="let branch of branchList" [value]="branch.nombre">
+                {{ branch.nombre }}
+              </option>
+            </select>
+          </div>
+        </div>
+        <!-- Agrega más campos aquí -->
+      </div>
+
+      <!-- Agrega más campos según tus necesidades -->
+
+      <!-- Botones para guardar y cancelar la creación/edición -->
+      <button class="btn btn-primary" (click)="saveProjection()">
+        {{ editMode ? "Editar" : "Guardar" }}
+      </button>
+      <button class="btn btn-secondary" (click)="createNewProjection()">
+        Cancelar
+      </button>
+      <button type="button" class="btn btn-secondary" (click)="returnBack()">
+        Atrás
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Sección de filtrado y lista de proyecciones -->
+<div class="container mt-4">
+  <h2>Proyecciones</h2>
+  <hr />
+
+  <!-- Formulario de filtro -->
+  <form [formGroup]="filterForm">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="pelicula">Filtrar por Película:</label>
+          <select
+            id="pelicula"
+            class="form-control"
+            formControlName="pelicula"
+            (change)="getProjectionsByMovieAndBranch()"
+          >
+            <option value="" disabled selected>Selecciona una película</option>
+            <option
+              *ngFor="let movie of movieList"
+              [value]="movie.nombreOriginal"
+            >
+              {{ movie.nombreOriginal }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nombreSucursal">Filtrar por Sucursal:</label>
+          <select
+            id="nombreSucursal"
+            class="form-control"
+            formControlName="nombreSucursal"
+            (change)="getProjectionsByMovieAndBranch()"
+          >
+            <option value="" disabled selected>Selecciona una sucursal</option>
+            <option *ngFor="let branch of branchList" [value]="branch.nombre">
+              {{ branch.nombre }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <!-- Lista de proyecciones filtradas -->
+  <table class="table mt-4">
+    <thead>
+      <tr>
+        <th>ID Proyección</th>
+        <th>Día</th>
+        <th>Mes</th>
+        <th>Año</th>
+        <th>Hora de Inicio</th>
+        <th>Hora Fin</th>
+        <th>Película</th>
+        <th>Sucursal</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let projection of projectionList">
+        <td>{{ projection.idProyeccion }}</td>
+        <td>{{ projection.dia }}</td>
+        <td>{{ projection.mes }}</td>
+        <td>{{ projection.agno }}</td>
+        <td>{{ projection.horaInicio }}</td>
+        <td>{{ projection.horaFin }}</td>
+        <td>{{ projection.pelicula }}</td>
+        <td>{{ projection.nombreSucursal }}</td>
+        <td>
+          <button
+            class="btn btn-sm btn-info"
+            (click)="editProjection(projection)"
+          >
+            Editar
+          </button>
+          <button
+            class="btn btn-sm btn-danger"
+            (click)="deleteProjection(projection)"
+          >
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

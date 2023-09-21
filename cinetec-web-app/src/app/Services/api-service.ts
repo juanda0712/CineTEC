@@ -29,13 +29,22 @@ export class ApiService<T> {
     return this.http.post<T>(url, data);
   }
 
+  createList(endpoint: string, listData: T[]): Observable<T[]> {
+    const url = `${this.baseUrl}/${endpoint}`;
+    return this.http.post<T[]>(url, listData);
+  }
+
   delete(endpoint: string, id: any): Observable<void> {
     const url = `${this.baseUrl}/${endpoint}/${id}`;
     return this.http.delete<void>(url);
   }
+  deleteByTwoIds(endpoint: string, id1: any, id2: any): Observable<void> {
+    const url = `${this.baseUrl}/${endpoint}/${id1}/${id2}`;
+    return this.http.delete<void>(url);
+  }
 
-  update(endpoint: string, branchName: string, data: T): Observable<T> {
-    const url = `${this.baseUrl}/${endpoint}/${branchName}`;
+  update(endpoint: string, id: any, data: T): Observable<T> {
+    const url = `${this.baseUrl}/${endpoint}/${id}`;
     return this.http.put<T>(url, data);
   }
 
