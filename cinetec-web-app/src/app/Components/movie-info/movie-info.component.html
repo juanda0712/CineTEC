@@ -17,21 +17,14 @@
     </ul>
     <div class="card-body">
       <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <a
-          style="text-decoration: none; color: aliceblue"
-          href="projections"
-          class="card-link"
-        >
+        <a style="text-decoration: none; color: aliceblue" [routerLink]="['/projections', movie[0].nombreOriginal]"
+          class="card-link">
           <button class="btn btn-secondary me-md-2" type="button">
             Reservar!
           </button>
         </a>
 
-        <a
-          style="text-decoration: none; color: aliceblue"
-          href="listings"
-          class="card-link"
-        >
+        <a style="text-decoration: none; color: aliceblue" href="listings" class="card-link">
           <button class="btn btn-secondary me-md-2" type="button">
             Volver!
           </button>

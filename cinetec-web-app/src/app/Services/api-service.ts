@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class ApiService<T> {
   private baseUrl = 'http://localhost:5053/api';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAll(endpoint: string): Observable<T[]> {
     return this.http.get<T[]>(`${this.baseUrl}/${endpoint}`);

@@ -49,6 +49,46 @@ namespace CineTECApiBackend.Controllers
         }
 
 
+        [HttpGet("{originalName}")]
+        public IActionResult GetSpecificMovie(string originalName)
+        {
+            // Carga los datos de los JSON en listas separadas
+            var allMovies = _jsonDataManager.LoadJsonFile<Pelicula>("Peliculas.json");
+            var allActors = _jsonDataManager.LoadJsonFile<Protagonista>("Protagonistas.json");
+
+            // Filtra las peliculas que coinciden con el NombreOriginal
+            var movieSpecific = allMovies.Where(p => p.NombreOriginal == originalName);
+
+            if (!movieSpecific.Any())
+            {
+                return NotFound(); // Si no se encuentran películas con ese nombre, devuelve un 404.
+            }
+
+            // Verifica si alguna de las listas está vacía
+            if (!allMovies.Any() || !allActors.Any())
+            {
+                return NotFound();
+            }
+
+            // Combina las películas y protagonistas por el campo NombreOriginal
+            var moviesWithActors = movieSpecific.Select(movie => new
+            {
+                NombreOriginal = movie.NombreOriginal,
+                NombreComercial = movie.NombreComercial,
+                Imagen = movie.Imagen,
+                Director = movie.Director,
+                Clasificacion = movie.Clasificacion,
+                Duracion = movie.Duracion,
+                Protagonistas = allActors
+                    .Where(actor => actor.NombreOriginal == movie.NombreOriginal)
+                    .Select(actor => actor.NombreCompleto)
+                    .ToList()
+            });
+
+            return Ok(moviesWithActors);
+        }
+
+
 
         [HttpPost]
         public IActionResult AddMovie([FromBody] Pelicula newMovie)

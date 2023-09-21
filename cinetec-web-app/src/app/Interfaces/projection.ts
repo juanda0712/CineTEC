@@ -8,3 +8,4 @@ export interface Projection {
   pelicula: string;
   nombreSucursal: string;
 }
+
