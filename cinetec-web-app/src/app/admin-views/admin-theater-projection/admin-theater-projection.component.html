@@ -1,0 +1,99 @@
+<div class="container mt-4">
+  <h2>Administrar Uniones de Salas y Proyecciones</h2>
+  <hr />
+
+  <!-- Formulario para seleccionar una sala y una proyección -->
+  <form [formGroup]="theaterProjectionForm" (ngSubmit)="saveUnion()">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="idSala">Seleccionar Sala:</label>
+          <select id="idSala" class="form-control" formControlName="idSala">
+            <option value="" disabled selected>Seleccionar Sala</option>
+            <option
+              *ngFor="let theater of theaterList"
+              [value]="theater.idSala"
+            >
+              Sala ID: {{ theater.idSala }} - {{ theater.nombreSucursal }} ({{
+                theater.numFilas
+              }}
+              filas, {{ theater.numColumnas }} columnas)
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="idProyeccion">Seleccionar Proyección:</label>
+          <select
+            id="idProyeccion"
+            class="form-control"
+            formControlName="idProyeccion"
+          >
+            <option value="" disabled selected>Seleccionar Proyección</option>
+            <option
+              *ngFor="let projection of projectionList"
+              [value]="projection.idProyeccion"
+            >
+              Proyección ID: {{ projection.idProyeccion }} -
+              {{ projection.pelicula }} ({{ projection.dia }}/{{
+                projection.mes
+              }}/{{ projection.agno }} -
+              {{ projection.horaInicio | date : "shortTime" }} -
+              {{ projection.horaFin | date : "shortTime" }}) en
+              {{ projection.nombreSucursal }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!theaterProjectionForm.valid"
+      >
+        Guardar Unión
+      </button>
+    </div>
+  </form>
+
+  <!-- Mostrar información de la sala seleccionada -->
+  <div *ngIf="theaterInfo">
+    <h3>Información de la Sala Seleccionada</h3>
+    <p>
+      Sala ID: {{ theaterInfo.idSala }}<br />
+      Nombre Sucursal: {{ theaterInfo.nombreSucursal }}<br />
+      Número de Filas: {{ theaterInfo.numFilas }}<br />
+      Número de Columnas: {{ theaterInfo.numColumnas }}
+    </p>
+  </div>
+
+  <!-- Mostrar información de la proyección seleccionada -->
+  <div *ngIf="projectionInfo">
+    <h3>Información de la Proyección Seleccionada</h3>
+    <p>
+      Proyección ID: {{ projectionInfo.idProyeccion }}<br />
+      Película: {{ projectionInfo.pelicula }}<br />
+      Fecha: {{ projectionInfo.dia }}/{{ projectionInfo.mes }}/{{
+        projectionInfo.agno
+      }}<br />
+      Hora de Inicio: {{ projectionInfo.horaInicio | date : "shortTime" }}<br />
+      Hora de Fin: {{ projectionInfo.horaFin | date : "shortTime" }}<br />
+      Sucursal: {{ projectionInfo.nombreSucursal }}
+    </p>
+  </div>
+  <button type="button" class="btn btn-secondary" (click)="returnBack()">
+    Atrás
+  </button>
+  <div>
+    <h3>Uniones Creadas</h3>
+    <ul>
+      <li *ngFor="let union of theaterProjectionList">
+        Sala ID: {{ union.idSala }}, Proyección ID: {{ union.idProyeccion }}
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Lista de uniones creadas -->

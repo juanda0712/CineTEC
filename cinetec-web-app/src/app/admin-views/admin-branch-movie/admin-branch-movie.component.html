@@ -1,0 +1,91 @@
+<div class="container mt-4">
+  <h2>Administrar Uniones de Salas y Películas</h2>
+  <hr />
+
+  <!-- Formulario para seleccionar una sala y una película -->
+  <form [formGroup]="branchMovieForm" (ngSubmit)="saveUnion()">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nombrePelicula">Seleccionar Película:</label>
+          <select
+            id="nombrePelicula"
+            class="form-control"
+            formControlName="nombrePelicula"
+          >
+            <option value="" disabled selected>Seleccionar Película</option>
+            <option
+              *ngFor="let movie of movieList"
+              [value]="movie.nombreOriginal"
+            >
+              {{ movie.nombreOriginal }} ({{ movie.director }} -
+              {{ movie.clasificacion }})
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nombreSucursal">Seleccionar Sucursal:</label>
+          <select
+            id="nombreSucursal"
+            class="form-control"
+            formControlName="nombreSucursal"
+          >
+            <option value="" disabled selected>Seleccionar Sucursal</option>
+            <option *ngFor="let branch of branchList" [value]="branch.nombre">
+              {{ branch.nombre }} ({{ branch.ubicacion }})
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="!branchMovieForm.valid"
+      >
+        Guardar Unión
+      </button>
+    </div>
+  </form>
+
+  <!-- Mostrar información de la película seleccionada -->
+  <div *ngIf="movieInfo">
+    <h3>Información de la Película Seleccionada</h3>
+    <p>
+      Nombre Original: {{ movieInfo.nombreOriginal }}<br />
+      Nombre Comercial: {{ movieInfo.nombreComercial }}<br />
+      Director: {{ movieInfo.director }}<br />
+      Clasificación: {{ movieInfo.clasificacion }}<br />
+      Duración: {{ movieInfo.duracion }} minutos<br />
+    </p>
+  </div>
+
+  <!-- Mostrar información de la sucursal seleccionada -->
+  <div *ngIf="branchInfo">
+    <h3>Información de la Sucursal Seleccionada</h3>
+    <p>
+      Nombre: {{ branchInfo.nombre }}<br />
+      Ubicación: {{ branchInfo.ubicacion }}<br />
+      Número de Salas: {{ branchInfo.numeroSalas }}<br />
+    </p>
+  </div>
+
+  <!-- Botón de regreso -->
+  <button type="button" class="btn btn-secondary" (click)="returnBack()">
+    Atrás
+  </button>
+
+  <!-- Lista de uniones creadas -->
+  <div>
+    <h3>Uniones Creadas</h3>
+    <ul>
+      <li *ngFor="let union of branchMovieList">
+        Película: {{ union.nombrePelicula }}, Sucursal:
+        {{ union.nombreSucursal }}
+      </li>
+    </ul>
+  </div>
+</div>
