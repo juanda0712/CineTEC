@@ -16,6 +16,7 @@ import { AdminTheaterComponent } from './admin-views/admin-theater/admin-theater
 import { AdminClientComponent } from './admin-views/admin-client/admin-client.component';
 import { AdminMovieComponent } from './admin-views/admin-movie/admin-movie.component';
 import { AdminProjectionComponent } from './admin-views/admin-projection/admin-projection.component';
+import { AdminBillComponent } from './admin-views/admin-bill/admin-bill.component';
 export const routes: Routes = [
   {
     path: '',
@@ -101,6 +102,12 @@ export const routes: Routes = [
     path: 'admin/projections',
     component: AdminProjectionComponent,
     title: 'Projections',
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/bills',
+    component: AdminBillComponent,
+    title: 'Bills',
     canActivate: [AdminGuard],
   },
 ];
